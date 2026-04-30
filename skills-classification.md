@@ -1,139 +1,41 @@
-# OpenClaw Skills Classification (v2026.3.23)
+# 技能分类与市场需求分析
 
-**Total:** 51 skills
+## 高需求变现技能（2026年趋势）
 
----
+### Tier 1 - 立即可变现
+| 技能 | 市场需求 | 单价范围 | 交付周期 |
+|------|----------|----------|----------|
+| AI Agent 搭建 | 🔥🔥🔥🔥🔥 | ¥5K-50K | 3-14天 |
+| 自动化脚本 | 🔥🔥🔥🔥 | ¥500-5K | 1-3天 |
+| 网页爬虫 | 🔥🔥🔥🔥 | ¥1K-10K | 2-5天 |
+| 数据分析 | 🔥🔥🔥 | ¥1K-8K | 2-7天 |
+| API 开发 | 🔥🔥🔥 | ¥2K-15K | 3-10天 |
 
-## 📊 By Category
+### Tier 2 - 中期积累
+| 技能 | 市场需求 | 单价范围 | 交付周期 |
+|------|----------|----------|----------|
+| OpenClaw 技能定制 | 🔥🔥🔥🔥🔥 | ¥3K-30K | 2-7天 |
+| 网站建设 | 🔥🔥🔥 | ¥2K-20K | 3-14天 |
+| 安全审计 | 🔥🔥🔥 | ¥2K-5K | 1-3天 |
+| DevOps 配置 | 🔥🔥 | ¥2K-10K | 2-7天 |
 
-### 1. Communication & Messaging (8 skills)
-| Skill | Emoji | Platform | Description |
-|-------|-------|----------|-------------|
-| `bluebubbles` | 🫧 | iMessage | iMessage via BlueBubbles (recommended) |
-| `imsg` | 📨 | iMessage | iMessage/SMS via macOS Messages.app |
-| `discord` | 🎮 | Discord | Discord operations via message tool |
-| `slack` | 💬 | Slack | Slack reactions, pins, messages |
-| `himalaya` | 📧 | Email | IMAP/SMTP email CLI |
-| `gog` | 🎮 | Google | Gmail, Calendar, Drive, Contacts, Sheets, Docs |
-| `xurl` | 🐦 | X/Twitter | X API v2 (tweets, DMs, search) |
-| `wacli` | 📱 | WhatsApp | WhatsApp messaging (business/API) |
+### Tier 3 - 被动收入
+| 技能 | 市场需求 | 收入模式 | 潜力 |
+|------|----------|----------|------|
+| 开源工具 | 中 | 赞助 + 定制 | 长期增长 |
+| 技术博客 | 中 | 广告 + 引流 | 6-12月起效 |
+| 模板/SaaS | 低-中 | 订阅制 | 高天花板 |
+| 在线课程 | 低-中 | 一次性 + 订阅 | 内容驱动 |
 
-### 2. Media, Audio & Video (9 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `sag` | 🔊 | ElevenLabs TTS with local playback |
-| `sherpa-onnx-tts` | 🔉 | Local offline TTS (no cloud) |
-| `openai-whisper` | 🎤 | Local speech-to-text (Whisper CLI) |
-| `openai-whisper-api` | 🌐 | OpenAI Whisper API transcription |
-| `songsee` | 🌊 | Audio spectrograms & feature visualization |
-| `video-frames` | 🎬 | Extract frames/clips from videos (ffmpeg) |
-| `camsnap` | 📸 | RTSP/ONVIF camera snapshots & clips |
-| `gifgrep` | 🧲 | Search/download GIFs, extract stills |
-| `voice-call` | 📞 | Voice calls (Twilio, Telnyx, Plivo) |
+## 最优组合策略
 
-### 3. Smart Home & IoT (5 skills)
-| Skill | Emoji | Platform |
-|-------|-------|----------|
-| `openhue` | 💡 | Philips Hue lights & scenes |
-| `sonoscli` | 🔊 | Sonos speakers |
-| `blucli` | 🫐 | BluOS (Bluesound/NAD players) |
-| `eightctl` | 🛌 | Eight Sleep pods (temp, alarms) |
-| `canvas` | 🖼️ | Display HTML on OpenClaw nodes |
+**短期（1-3月）：** 接单服务（自动化 + AI Agent）
+**中期（3-6月）：** 技术博客引流 + 开源项目获客
+**长期（6月+）：** 模板产品化 + 被动收入
 
-### 4. Productivity & Notes (8 skills)
-| Skill | Emoji | Platform |
-|-------|-------|----------|
-| `obsidian` | 💎 | Obsidian vaults (Markdown notes) |
-| `bear-notes` | 🐻 | Bear notes via grizzly CLI |
-| `apple-notes` | 📝 | Apple Notes via memo CLI |
-| `things-mac` | ✅ | Things 3 tasks/projects |
-| `apple-reminders` | ⏰ | Apple Reminders via remindctl |
-| `notion` | 📝 | Notion API (pages, databases) |
-| `trello` | 📋 | Trello boards, lists, cards |
-| `summarize` | 🧾 | Summarize URLs, files, podcasts |
+## 差异化优势
 
-### 5. Development & Coding (6 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `coding-agent` | 🧩 | Delegate to Codex/Claude/Pi agents |
-| `github` | 🐙 | GitHub CLI (issues, PRs, CI) |
-| `gh-issues` | 🐛 | Auto-fix GitHub issues with sub-agents |
-| `oracle` | 🧿 | Prompt + file bundling for LLM queries |
-| `mcporter` | 📦 | MCP server/tool management |
-| `tmux` | 🧵 | Remote-control tmux sessions |
-
-### 6. System & Infrastructure (6 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `healthcheck` | 🛡️ | Host security hardening & audits |
-| `node-connect` | 📡 | Diagnose node connection/pairing |
-| `session-logs` | 📜 | Search session conversation history |
-| `model-usage` | 📊 | CodexBar cost/usage tracking |
-| `1password` | 🔐 | 1Password CLI (secrets management) |
-| `skill-creator` | 🛠️ | Create/edit/audit AgentSkills |
-
-### 7. Web & Location (3 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `weather` | ☔ | Weather via wttr.in / Open-Meteo |
-| `goplaces` | 📍 | Google Places API (search, details) |
-| `blogwatcher` | 📰 | Monitor blogs/RSS/Atom feeds |
-
-### 8. Entertainment & Lifestyle (4 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `spotify-player` | 🎵 | Spotify playback/search (spogo/spotify_player) |
-| `ordercli` | 🛵 | Foodora order tracking |
-| `peekaboo` | 👀 | macOS UI automation & screenshots |
-| `gemini` | ✨ | Gemini CLI (one-shot Q&A) |
-
-### 9. Utility & Tools (2 skills)
-| Skill | Emoji | Purpose |
-|-------|-------|---------|
-| `nano-pdf` | 📄 | PDF editing with natural language |
-| `clawhub` | 📦 | Skill marketplace (search/install/publish) |
-
----
-
-## 📈 By Installation Method
-
-| Method | Count | Skills |
-|--------|-------|--------|
-| **Homebrew** | 28 | summarize, camsnap, video-frames, goplaces, oracle, gifgrep, himalaya, imsg, obsidian, openhue, github, apple-reminders, openai-whisper, 1password, sag, xurl, weather, apple-notes, gemini, bear-notes (via go), ordercli, peekaboo, nano-pdf (via uv), wacli |
-| **Go** | 10 | sonoscli, blucli, eightctl, blogwatcher, bear-notes, things-mac, gifgrep (alt), ordercli (alt), wacli (alt) |
-| **Node/npm** | 5 | oracle, mcporter, clawhub, xurl (alt) |
-| **Built-in/Config** | 8 | bluebubbles, discord, slack, voice-call, canvas, session-logs, model-usage, skill-creator, healthcheck, node-connect, notion, trello, openai-whisper-api, sherpa-onnx-tts, coding-agent, tmux, summarize |
-
----
-
-## 🎯 By Platform Support
-
-| Platform | Skills |
-|----------|--------|
-| **macOS only** | imsg, peekaboo, bear-notes, apple-notes, things-mac, apple-reminders, model-usage |
-| **Cross-platform** | Most CLI tools (Linux/macOS) |
-| **Config-based** | bluebubbles, discord, slack, voice-call, canvas, node-connect |
-
----
-
-## 🔑 By API Key Requirements
-
-| Skill | Required Env |
-|-------|-------------|
-| `goplaces` | `GOOGLE_PLACES_API_KEY` |
-| `sag` | `ELEVENLABS_API_KEY` |
-| `notion` | `NOTION_API_KEY` |
-| `openai-whisper-api` | `OPENAI_API_KEY` |
-| `trello` | `TRELLO_API_KEY`, `TRELLO_TOKEN` |
-| `gh-issues` | `GH_TOKEN` |
-| `sherpa-onnx-tts` | `SHERPA_ONNX_RUNTIME_DIR`, `SHERPA_ONNX_MODEL_DIR` |
-
----
-
-## 📝 Notes
-
-- **Most mature categories:** Communication (8), Media (9), Productivity (8)
-- **Smallest categories:** Utility (2), Web (3)
-- **Homebrew is the primary distribution method** (28/51 skills)
-- **macOS-heavy:** Several skills are macOS-only due to Apple ecosystem integrations
-- **Self-hosted focus:** Most skills use local CLI tools rather than cloud APIs
+1. **AI 驱动** - 不是传统外包，是 AI 增强型开发，速度更快
+2. **24/7 可用** - 无休息日，响应即时
+3. **全栈能力** - 从脚本到网站到 AI 系统
+4. **OpenClaw 生态** - 稀缺技能，竞争少单价高

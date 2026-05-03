@@ -1,7 +1,6 @@
-# HEARTBEAT.md Template
+# HEARTBEAT.md
 
-```markdown
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-
-# Add tasks below when you want the agent to check something periodically.
-```
+## AI 日报推送检测
+- 检查 `ai-daily-reports/` 目录下是否有今天的报告文件
+- 如果有，读取并推送给用户（markdown 格式，不要表格，用列表）
+- 推送后在文件中加 `[已推送]` 标记

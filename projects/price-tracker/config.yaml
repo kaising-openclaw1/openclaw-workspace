@@ -1,0 +1,17 @@
+targets:
+  - name: "示例产品A"
+    url: "https://example.com/product-a"
+    selector: ".price-value"
+    notify_threshold: 10  # 价格变动超过10%时通知
+
+  - name: "示例产品B"
+    url: "https://example.com/product-b"
+    selector: "#product-price"
+    notify_threshold: 5
+
+settings:
+  check_interval_hours: 6       # 每6小时检查一次
+  user_agent: "Mozilla/5.0 (compatible; PriceTracker/1.0)"
+  data_dir: "./data"
+  max_retries: 3
+  timeout_seconds: 30

@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-30T07:03:19.067Z",
+  "entries": {
+    "memory:memory/2026-04-29.md:29:60": {
+      "key": "memory:memory/2026-04-29.md:29:60",
+      "path": "memory/2026-04-29.md",
+      "startLine": 29,
+      "endLine": 60,
+      "source": "memory",
+      "snippet": "1. **输入法问题**：sudo 密码 `zr924427` 在中文输入法下输入会导致验证失败，必须切换到英文输入法 2. **Go 版本升级**：系统自带 Go 1.13.8 太旧，升级到 1.22.5（安装在 `/usr/local/go`）；blogwatcher 编译时自动下载了 Go 1.25.9 3. **代理设置**：所有 Go 相关操作需要通过 `ALL_PROXY=socks5://127.0.0.1:1080` 走 Xray 代理 ## Python 兼容性问题 - `package_skill.py` 验证脚本在 Python 3.8 下报错：`TypeError: 'type' object is not subscriptable` - 原因：`dict[str, str]` 语法在 Python 3.9+ 才支持 ## SQLite-vec 问题 - `elite-longterm-memory` 报 `sqlite-vec unavailable` - 向量嵌入无法写入数据库，记忆系统退化为纯文本搜索 - 待修复：安装 sqlite-vec 原生模块 ## 💰 变现项目启动（15:53 起） 大凯指示：不用问，没有其他任务时自主推进赚钱项目。 约束：零本金、无账号授权、不违法不伤害他人。 ### 已完成 **1. 项目目录搭建** - `/home/kaising/projects/ai-news/` — 项目根目录 - `tutorials/` — 技术教程 - `portfolio/` — 开源工具/作品集 - `fiver",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T02:10:27.138Z",
+      "lastRecalledAt": "2026-04-30T02:10:27.138Z",
+      "queryHashes": [
+        "4132eb5a9756"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "1.13.8",
+        "1.22.5",
+        "usr/local/go",
+        "1.25.9",
+        "all-proxy",
+        "127.0.0.1",
+        "package-skill.py",
+        "3.8"
+      ]
+    },
+    "memory:memory/2026-04-29.md:81:106": {
+      "key": "memory:memory/2026-04-29.md:81:106",
+      "path": "memory/2026-04-29.md",
+      "startLine": 81,
+      "endLine": 106,
+      "source": "memory",
+      "snippet": "- 配额：5小时 44% / 一周 14% / 一月 18%（2026-04-29 15:57 数据） - ⚠️ API Key 未存储，仅当前会话可用 ### 下一步 - 发布教程到掘金/知乎/V2EX（需手动操作） - GitHub 创建仓库发布 quicksite.sh（需 gh repo create） - 注册 Fiverr 并发布 Gig（需浏览器操作） - 注册程序员客栈/电鸭（需浏览器操作） ### 项目最终结构 ``` /home/kaising/projects/ai-news/ ├── tutorials/ # 11 篇技术教程 + 2 个索引 ├── portfolio/ # 3 个开源工具 + README ├── fiverr/ # 5 份接单资料 ├── index.html # 个人作品集网站 ├── README.md # 项目说明 └── PROGRESS.md # 进展追踪 ``` ### 下一步变现动作 1. 发布 3-5 篇教程到掘金/知乎（引流） 2. GitHub 发布 quicksite.sh（建立作品集） 3. 注册 Fiverr 并发布 3 个 Gig（接单） 4. 注册程序员客栈/电鸭（国内接单）",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-30T07:03:19.067Z",
+      "lastRecalledAt": "2026-04-30T07:03:19.067Z",
+      "queryHashes": [
+        "3206742a7e94"
+      ],
+      "recallDays": [
+        "2026-04-30"
+      ],
+      "conceptTags": [
+        "发布教程到掘金/知乎/v2ex",
+        "quicksite.sh",
+        "注册程序员客栈/电鸭",
+        "home/kaising/projects/ai-news",
+        "index.html",
+        "readme.md",
+        "progress.md",
+        "3-5"
+      ]
+    }
+  }
+}

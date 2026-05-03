@@ -1,0 +1,39 @@
+# Content Auto-Publisher 配置模板
+# 复制为 config.yaml 并填入真实值
+
+platforms:
+  wechat:
+    api_key: ""
+    secret: ""
+    best_times: ["07:00", "12:00", "21:00"]
+  
+  zhihu:
+    cookie: ""
+    best_times: ["08:00", "12:30", "20:00"]
+  
+  xiaohongshu:
+    api_key: ""
+    best_times: ["07:30", "12:00", "18:30"]
+  
+  weibo:
+    app_key: ""
+    app_secret: ""
+    redirect_uri: ""
+    best_times: ["07:00", "12:00", "18:00"]
+
+notification:
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: ""
+    password: ""
+    to: ""
+  
+  telegram:
+    enabled: false
+    bot_token: ""
+    chat_id: ""
+
+database:
+  path: "analytics.db"

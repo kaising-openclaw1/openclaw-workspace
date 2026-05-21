@@ -1,4 +1,4 @@
-"""Agent 配置管理"""
+"""Agent 配置管理 - v2.0"""
 from dataclasses import dataclass
 from typing import Optional
 
@@ -13,7 +13,13 @@ class AgentConfig:
     fps: int = 15  # 截帧率
     max_width: int = 1920  # 最大宽度（缩放）
     reconnect_interval: int = 5  # 重连间隔（秒）
-    heartbeat_interval: int = 30  # 心跳间隔（秒）
+    heartbeat_interval: int = 15  # 💓 心跳间隔（秒）
+    monitor: int = 0  # 显示器索引
+    diff_block_size: int = 64  # 差分块大小（像素）
+    adaptive_quality: bool = True  # 自适应画质
+    clipboard_sync: bool = True  # 剪贴板同步
+    enable_recording: bool = True  # 会话录制
+    pin: Optional[str] = None  # 无人值守访问码
     
     def validate(self):
         """验证配置"""

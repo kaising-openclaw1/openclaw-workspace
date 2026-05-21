@@ -2,64 +2,208 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RemoteEye - 远程控制台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RemoteEye v3.0 Pro — 远程控制</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div id="app">
-        <!-- 顶部导航 -->
-        <header class="header">
-            <div class="logo">
-                <span class="logo-icon">👁️</span>
-                <h1>RemoteEye</h1>
-            </div>
-            <div class="status">
-                <span id="connection-status" class="status-dot offline"></span>
-                <span id="connection-text">未连接</span>
-            </div>
-        </header>
+    <header class="header">
+        <div class="logo"><span class="logo-icon">👁️</span><h1>RemoteEye</h1></div>
+        <div class="header-right">
+            <span class="version-tag">v3.0 Pro</span>
+            <div class="status-badge"><span id="conn-dot" class="status-dot offline"></span><span id="conn-text">未连接</span></div>
+        </div>
+    </header>
 
-        <!-- 主内容区 -->
-        <main class="main-content">
-            <!-- 左侧：设备列表 -->
-            <aside class="sidebar">
-                <h2>📱 在线设备</h2>
-                <ul id="device-list" class="device-list">
-                    <li class="empty-state">正在加载设备列表...</li>
-                </ul>
-            </aside>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-tabs">
+                <div class="sidebar-tab active" data-tab="devices">📱 设备</div>
+                <div class="sidebar-tab" data-tab="connect">🔗 连接</div>
+                <div class="sidebar-tab" data-tab="tools">🛠️ 工具</div>
+            </div>
+            <div class="sidebar-content">
+                <!-- 设备列表 -->
+                <div id="tab-devices" class="tab-panel active"><div id="device-list"><div class="empty-state">正在加载...</div></div></div>
 
-            <!-- 右侧：远程桌面 -->
-            <section class="desktop-area">
-                <div id="remote-screen" class="screen-placeholder">
-                    <div class="placeholder-content">
-                        <span class="placeholder-icon">🖥️</span>
-                        <p>选择一个设备开始远程控制</p>
+                <!-- 连接面板 -->
+                <div id="tab-connect" class="tab-panel">
+                    <div class="connect-form">
+                        <h3 style="font-size:14px;margin-bottom:12px">🔗 连接到远程设备</h3>
+                        <div class="form-group"><label>连接 ID</label><input type="text" id="conn-id-input" class="form-input" placeholder="输入 9 位数字 ID" maxlength="9" inputmode="numeric"></div>
+                        <div class="form-group"><label>临时密码</label><input type="password" id="conn-pass-input" class="form-input" placeholder="输入 6 位密码" maxlength="6" inputmode="numeric"></div>
+                        <div class="form-group"><label>模式</label>
+                            <select id="conn-mode" class="form-input">
+                                <option value="control">🖥️ 远程控制</option>
+                                <option value="view">👁️ 仅查看</option>
+                                <option value="file">📁 文件传输</option>
+                                <option value="shell">💻 远程终端</option>
+                            </select>
+                        </div>
+                        <button id="btn-connect-code" class="btn btn-primary btn-block">🔗 连接</button>
+                    </div>
+                    <div id="my-conn-card" class="connection-card" style="display:none">
+                        <h3 style="font-size:14px;margin-bottom:8px">📋 我的连接卡（分享给对方）</h3>
+                        <div class="conn-row"><span class="conn-label">连接 ID</span><span id="my-conn-id" class="conn-value">---------</span></div>
+                        <div class="conn-row"><span class="conn-label">临时密码</span><span id="my-conn-pass" class="conn-value password">------</span></div>
+                        <div class="conn-timer"><span id="conn-expires">10 分钟后过期</span></div>
+                        <div class="conn-actions">
+                            <button id="btn-refresh-code" class="btn btn-sm btn-secondary">🔄 刷新</button>
+                            <button id="btn-copy-code" class="btn btn-sm btn-secondary">📋 复制</button>
+                        </div>
                     </div>
                 </div>
-                <canvas id="screen-canvas" style="display:none;"></canvas>
 
-                <!-- 控制栏 -->
-                <div id="control-bar" class="control-bar" style="display:none;">
-                    <div class="control-info">
-                        <span id="current-device">设备名称</span>
+                <!-- 工具面板 -->
+                <div id="tab-tools" class="tab-panel">
+                    <!-- 画质 -->
+                    <div class="connect-form">
+                        <h3 style="font-size:14px;margin-bottom:12px">⚙️ 画质设置</h3>
+                        <div class="slider-group"><div class="slider-header"><span class="slider-label">画质</span><span id="quality-val" class="slider-value">75</span></div><input type="range" id="quality-slider" min="30" max="100" value="75"></div>
+                        <div class="slider-group"><div class="slider-header"><span class="slider-label">帧率</span><span id="fps-val" class="slider-value">15</span></div><input type="range" id="fps-slider" min="5" max="30" value="15"></div>
                     </div>
-                    <div class="control-actions">
-                        <button id="btn-refresh" class="btn btn-secondary" title="刷新设备列表">🔄 刷新</button>
-                        <button id="btn-fullscreen" class="btn btn-secondary" title="全屏">⛶ 全屏</button>
-                        <button id="btn-disconnect" class="btn btn-danger" title="断开连接">✕ 断开</button>
+
+                    <!-- 快捷按键 -->
+                    <div class="connect-form">
+                        <h3 style="font-size:14px;margin-bottom:12px">⌨️ 快捷按键</h3>
+                        <div class="special-keys">
+                            <button class="special-key-btn" data-key="ctrl+alt+del">Ctrl+Alt+Del</button>
+                            <button class="special-key-btn" data-key="ctrl+esc">Ctrl+Esc</button>
+                            <button class="special-key-btn" data-key="win+d">Win+D</button>
+                            <button class="special-key-btn" data-key="win+e">Win+E</button>
+                            <button class="special-key-btn" data-key="win+l">Win+L</button>
+                            <button class="special-key-btn" data-key="alt+tab">Alt+Tab</button>
+                            <button class="special-key-btn" data-key="ctrl+shift+esc">任务管理器</button>
+                            <button class="special-key-btn" data-key="print_screen">截屏</button>
+                        </div>
+                    </div>
+
+                    <!-- 键盘快捷键 -->
+                    <div class="connect-form">
+                        <h3 style="font-size:14px;margin-bottom:8px">📖 快捷键</h3>
+                        <div class="shortcuts-panel">
+                            <div class="shortcut-row"><span>全屏</span><span class="shortcut-key">F11</span></div>
+                            <div class="shortcut-row"><span>质量面板</span><span class="shortcut-key">Ctrl+Q</span></div>
+                            <div class="shortcut-row"><span>截屏保存</span><span class="shortcut-key">Ctrl+S</span></div>
+                            <div class="shortcut-row"><span>断开连接</span><span class="shortcut-key">Ctrl+W</span></div>
+                        </div>
+                    </div>
+
+                    <!-- 文件浏览器 -->
+                    <div class="file-browser">
+                        <div class="file-header"><span>📁 远程文件</span>
+                            <div class="file-actions">
+                                <button id="btn-file-refresh" class="btn-icon" title="刷新">🔄</button>
+                                <button id="btn-file-mkdir" class="btn-icon" title="新建">📁+</button>
+                                <button id="btn-file-upload" class="btn-icon" title="上传">⬆️</button>
+                                <input type="file" id="file-upload-input" multiple style="display:none">
+                            </div>
+                        </div>
+                        <div id="file-path-bar" style="padding:6px 12px;font-size:11px;color:var(--accent);font-family:'SF Mono',monospace;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/</div>
+                        <ul id="file-list" class="file-list"><li class="empty-state">连接后浏览</li></ul>
+                    </div>
+
+                    <!-- 剪贴板 -->
+                    <div style="margin-top:12px">
+                        <div class="clipboard-panel">
+                            <h3 style="font-size:14px;margin-bottom:8px">📋 剪贴板</h3>
+                            <div id="clipboard-display" class="clipboard-display">暂无内容</div>
+                            <div class="clipboard-actions">
+                                <button id="btn-clip-send" class="btn btn-sm btn-secondary">➡️ 发送</button>
+                                <button id="btn-clip-get" class="btn btn-sm btn-secondary">⬅️ 获取</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 远程终端 -->
+                    <div style="margin-top:12px">
+                        <div class="shell-panel">
+                            <div class="shell-header"><span>💻 远程终端</span><button id="btn-shell-toggle" class="btn btn-sm btn-secondary">启动</button></div>
+                            <div id="shell-output" class="shell-output" style="display:none"></div>
+                            <div id="shell-input-row" class="shell-input-row" style="display:none"><input id="shell-input" class="shell-input" placeholder="输入命令..." autocomplete="off"></div>
+                        </div>
+                    </div>
+
+                    <!-- 录制回放 -->
+                    <div style="margin-top:12px">
+                        <div id="recording-section" class="connection-card">
+                            <h3 style="font-size:14px;margin-bottom:8px">🎬 录制回放</h3>
+                            <div id="recording-list"><div class="empty-state">暂无录制</div></div>
+                        </div>
+                        <!-- 播放器 -->
+                        <div id="recording-player" class="recording-player" style="display:none;margin-top:8px">
+                            <div class="player-header"><span id="player-title">播放中</span><button id="btn-player-close" class="btn-icon">✕</button></div>
+                            <div class="player-screen"><canvas id="player-canvas" width="640" height="480" style="max-width:100%;max-height:300px"></canvas></div>
+                            <div class="player-controls">
+                                <button id="btn-player-play" class="btn btn-sm btn-secondary">▶</button>
+                                <div class="player-progress" id="player-progress"><div class="player-progress-fill" id="player-fill"></div></div>
+                                <span id="player-time" class="player-time">0:00 / 0:00</span>
+                                <span id="player-speed" class="player-speed" title="点击切换速度">1x</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </aside>
+
+        <main class="desktop-area">
+            <div class="toolbar" id="toolbar" style="display:none">
+                <div class="toolbar-left">
+                    <span class="session-info">已连接: <strong id="session-device">-</strong></span>
+                    <div class="toolbar-divider"></div>
+                    <button id="btn-fullscreen" class="btn btn-sm btn-secondary" title="全屏 (F11)">⛶</button>
+                    <button id="btn-monitor" class="btn btn-sm btn-secondary" title="切换显示器">🖥️</button>
+                    <button id="btn-cursor-toggle" class="btn btn-sm btn-secondary" title="远程光标">🖱️</button>
+                    <button id="btn-quality-toggle" class="btn btn-sm btn-secondary" title="质量面板 (Ctrl+Q)">📊</button>
+                    <button id="btn-screenshot" class="btn btn-sm btn-secondary" title="截屏保存 (Ctrl+S)">📸</button>
+                    <button id="btn-chat-toggle" class="btn btn-sm btn-secondary" title="聊天">💬</button>
+                </div>
+                <div class="toolbar-right">
+                    <span id="fps-badge" style="font-size:12px;color:var(--text-secondary);font-family:'SF Mono',monospace"></span>
+                    <button id="btn-disconnect" class="btn btn-sm btn-danger" title="断开 (Ctrl+W)">断开</button>
+                </div>
+            </div>
+
+            <div class="remote-screen" id="remote-screen">
+                <div id="placeholder" class="placeholder">
+                    <span class="placeholder-icon">🖥️</span>
+                    <p>选择设备或输入连接 ID 开始</p>
+                    <span class="sub">远程桌面 · 文件传输 · 远程终端 · 录制回放</span>
+                </div>
+                <canvas id="screen-canvas" style="display:none"></canvas>
+                <!-- 远程光标 -->
+                <div id="remote-cursor" class="remote-cursor" style="display:none">
+                    <svg viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1"><path d="M5 3l14 8-6 2-3 6z"/></svg>
+                </div>
+                <!-- 拖放区域 -->
+                <div id="drop-zone" class="drop-zone"><span>📁 释放以上传文件</span></div>
+                <!-- 质量覆盖层 -->
+                <div id="quality-overlay" class="quality-overlay">
+                    <div id="q-score-display" class="quality-score">-</div>
+                    <div class="quality-row"><span class="quality-label">延迟</span><span id="q-latency2" class="quality-value">-</span></div>
+                    <div class="quality-row"><span class="quality-label">帧率</span><span id="q-fps2" class="quality-value">-</span></div>
+                    <div class="quality-row"><span class="quality-label">带宽</span><span id="q-bandwidth2" class="quality-value">-</span></div>
+                </div>
+                <!-- 💬 聊天面板 -->
+                <div id="chat-panel" class="chat-panel" style="display:none">
+                    <div class="chat-header">
+                        <span>💬 聊天</span>
+                        <button id="btn-chat-close" class="btn-icon">✕</button>
+                    </div>
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="输入消息..." maxlength="500" />
+                        <button id="btn-chat-send" class="btn btn-sm btn-primary">发送</button>
+                    </div>
+                </div>
+            </div>
         </main>
-
-        <!-- 底部状态栏 -->
-        <footer class="footer">
-            <span id="status-text">就绪</span>
-            <span id="fps-display"></span>
-        </footer>
     </div>
+
+    <footer class="footer">
+        <span id="status-text">就绪</span>
+        <span>RemoteEye v3.0 Pro · 开源远程控制</span>
+    </footer>
 
     <script src="/static/js/controller.js"></script>
 </body>

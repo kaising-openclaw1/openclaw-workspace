@@ -1,0 +1,4 @@
+# Code Review Bot — Dependencies
+# Core: uses only stdlib (urllib, json) for HTTP calls
+# Optional: for GitHub API integration
+requests>=2.31.0

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-10T13:51:00.901Z",
+  "updatedAt": "2026-05-21T05:04:51.215Z",
   "entries": {
     "memory:memory/2026-04-29.md:29:60": {
       "key": "memory:memory/2026-04-29.md:29:60",
@@ -9,18 +9,20 @@
       "endLine": 60,
       "source": "memory",
       "snippet": "1. **输入法问题**：sudo 密码 `zr924427` 在中文输入法下输入会导致验证失败，必须切换到英文输入法 2. **Go 版本升级**：系统自带 Go 1.13.8 太旧，升级到 1.22.5（安装在 `/usr/local/go`）；blogwatcher 编译时自动下载了 Go 1.25.9 3. **代理设置**：所有 Go 相关操作需要通过 `ALL_PROXY=socks5://127.0.0.1:1080` 走 Xray 代理 ## Python 兼容性问题 - `package_skill.py` 验证脚本在 Python 3.8 下报错：`TypeError: 'type' object is not subscriptable` - 原因：`dict[str, str]` 语法在 Python 3.9+ 才支持 ## SQLite-vec 问题 - `elite-longterm-memory` 报 `sqlite-vec unavailable` - 向量嵌入无法写入数据库，记忆系统退化为纯文本搜索 - 待修复：安装 sqlite-vec 原生模块 ## 💰 变现项目启动（15:53 起） 大凯指示：不用问，没有其他任务时自主推进赚钱项目。 约束：零本金、无账号授权、不违法不伤害他人。 ### 已完成 **1. 项目目录搭建** - `/home/kaising/projects/ai-news/` — 项目根目录 - `tutorials/` — 技术教程 - `portfolio/` — 开源工具/作品集 - `fiver",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T02:10:27.138Z",
-      "lastRecalledAt": "2026-04-30T02:10:27.138Z",
+      "lastRecalledAt": "2026-05-21T05:04:51.215Z",
       "queryHashes": [
-        "4132eb5a9756"
+        "4132eb5a9756",
+        "a60f8d6d2528"
       ],
       "recallDays": [
-        "2026-04-30"
+        "2026-04-30",
+        "2026-05-21"
       ],
       "conceptTags": [
         "1.13.8",
@@ -93,6 +95,259 @@
         "资料",
         "准备",
         "platform"
+      ]
+    },
+    "memory:memory/2026-05-07.md:28:60": {
+      "key": "memory:memory/2026-05-07.md:28:60",
+      "path": "memory/2026-05-07.md",
+      "startLine": 28,
+      "endLine": 60,
+      "source": "memory",
+      "snippet": "- 设备管理（在线状态/设备列表） - 暗色主题 UI - 一键安装 #### 2. 博客文章 #18 —《从零搭建开源版向日葵：RemoteEye 远程控制软件完整开发实战》 - **字数：** 约 5000 字 - **核心内容：** - 远程控制市场分析（TeamViewer/向日葵/ToDesk） - 完整架构设计 + 流程图 - 被控端实现（mss 截屏 + pynput 键鼠） - 信令服务器实现（FastAPI + WebSocket） - Web 主控端实现（Canvas 渲染 + 键鼠事件） - 性能优化对比（截屏方案/网络传输/延迟） - 安全设计（设备认证/可视化提示/一键断开） - 部署方案（Docker + 公网） - 商业变现路径（SaaS + 定制开发） - **文件位置：** `memory/blog-article-18.md` ### 资产累计 - 📝 18 篇博客文章 - 🛠️ 9+ 开源项目（含 RemoteEye 旗舰项目） - 🌐 1 个 Portfolio 网站 - 🤖 7 位书法家 AI 模型（待训练） - 📄 5 套完整变现方案（Skill 定制、数据自动化、书法字库、AI 客服、远程控制） ### 待大凯配合 | 事项 | 优先级 | 说明 | |------|--------|------| | GitHub 推送 | 🔴 高 | 推送 RemoteEye 等新项目到 GitHub | | 平台注册 | 🟡 中 | 猪八戒/程序员客栈接单平台注册 | |",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T01:48:45.515Z",
+      "lastRecalledAt": "2026-05-11T01:48:49.589Z",
+      "queryHashes": [
+        "3f8fef8536c7",
+        "2191d6952c5b"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "网络",
+        "在线状态/设备列表",
+        "teamviewer/向日葵/todesk",
+        "截屏方案/网络传输/延迟",
+        "设备认证/可视化提示/一键断开",
+        "memory/blog-article-18.md",
+        "猪八戒/程序员客栈接单平台注册",
+        "设备"
+      ]
+    },
+    "memory:memory/2026-05-07.md:56:66": {
+      "key": "memory:memory/2026-05-07.md:56:66",
+      "path": "memory/2026-05-07.md",
+      "startLine": 56,
+      "endLine": 66,
+      "source": "memory",
+      "snippet": "| 事项 | 优先级 | 说明 | |------|--------|------| | GitHub 推送 | 🔴 高 | 推送 RemoteEye 等新项目到 GitHub | | 平台注册 | 🟡 中 | 猪八戒/程序员客栈接单平台注册 | | AutoDL GPU 注册 | 🟡 中 | 注册并充值 ¥50-100，启动书法 AI 训练 | | 博客发布 | 🟢 低 | 将 18 篇博客发布到知乎/掘金/CSDN | --- *最后更新：2026-05-07 12:43*",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T01:48:49.589Z",
+      "lastRecalledAt": "2026-05-11T01:48:49.589Z",
+      "queryHashes": [
+        "2191d6952c5b"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "猪八戒/程序员客栈接单平台注册",
+        "50-100",
+        "篇博客发布到知乎/掘金/csdn",
+        "事项",
+        "优先",
+        "说明",
+        "github",
+        "推送"
+      ]
+    },
+    "memory:memory/2026-05-07.md:1:35": {
+      "key": "memory:memory/2026-05-07.md:1:35",
+      "path": "memory/2026-05-07.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# 2026-05-07 工作日志 ## 日常推进 #6 — Day 42（上午） ### 自主完成 #### 1. 新开源项目：RemoteEye 远程控制软件 - **项目路径：** `projects/remote-control/` - **对标产品：** 向日葵 / ToDesk / TeamViewer - **架构：** - 被控端 Agent：Python + mss（截屏）+ pynput（键鼠控制） - 信令服务器：Python + FastAPI + WebSocket - Web 主控端：HTML5 + Canvas（纯浏览器） - **核心文件：** - `agent/agent.py` - Agent 主程序（截屏推流 + 键鼠接收） - `agent/capture.py` - 屏幕捕获模块（mss） - `agent/input.py` - 键鼠输入模块（pynput） - `agent/config.py` - 配置管理 - `server/main.py` - FastAPI 信令服务器（设备管理 + WebSocket 路由） - `web/templates/index.html` - Web 主控端页面 - `web/static/css/style.css` - 暗色主题样式 - `web/static/js/controller.js` - 控制逻辑（WebSocket + Canvas） - `scripts/install.sh` - 一键安装脚本 - **特性：** -",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-11T01:48:49.589Z",
+      "lastRecalledAt": "2026-05-11T01:48:49.589Z",
+      "queryHashes": [
+        "2191d6952c5b"
+      ],
+      "recallDays": [
+        "2026-05-11"
+      ],
+      "conceptTags": [
+        "projects/remote-control",
+        "agent/agent.py",
+        "agent/capture.py",
+        "agent/input.py",
+        "agent/config.py",
+        "server/main.py",
+        "web/templates/index.html",
+        "web/static/css/style.css"
+      ]
+    },
+    "memory:memory/2026-05-10.md:1:29": {
+      "key": "memory:memory/2026-05-10.md:1:29",
+      "path": "memory/2026-05-10.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# 2026-05-10 日报 - Day 45 ## 进展 ### 晚上 - 大凯下达\"继续赚钱\"指令 - 状态：Day 45，Phase 1-2 完成，Phase 3 待突破 - AI 日报已推送（18:42）：LLM 文档静默破坏 + Agent 混沌测试 - 完成：新博客文章《手把手教你用 Python 构建文档完整性守护系统》（约5000字） - 基于 arXiv 论文 DELEGATE-52（LLM 静默破坏 25% 文档内容） - 包含完整代码：checksum 引擎 + diff 分析 + 回滚管理 + CLI 工具 - 完成：DocGuard 开源项目 - doc_guard/core.py — DocGuard 主类（protect/verify/rollback API） - doc_guard/checksum.py — SHA-256 校验和引擎 + ChecksumStore 持久化 - doc_guard/diff.py — ContentDiff 差异分析（基于 difflib） - doc_guard/rollback.py — RollbackManager 快照与回滚管理 - doc_guard/cli.py — 命令行工具（protect/verify/rollback/history/status） - tests/test_doc_guard.py — 全面测试套件（20+ 测试用例） - examples/basic_usage.py — 完整使用示例 - setup.py — 安装配置",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-13T08:35:16.398Z",
+      "lastRecalledAt": "2026-05-21T05:04:51.215Z",
+      "queryHashes": [
+        "e0f6f045e914",
+        "ced371e9f12e",
+        "a60f8d6d2528"
+      ],
+      "recallDays": [
+        "2026-05-13",
+        "2026-05-19",
+        "2026-05-21"
+      ],
+      "conceptTags": [
+        "1-2",
+        "delegate-52",
+        "doc-guard/core.py",
+        "protect/verify/rollback",
+        "doc-guard/checksum.py",
+        "sha-256",
+        "doc-guard/diff.py",
+        "doc-guard/rollback.py"
+      ]
+    },
+    "memory:memory/2026-05-11.md:137:178": {
+      "key": "memory:memory/2026-05-11.md:137:178",
+      "path": "memory/2026-05-11.md",
+      "startLine": 137,
+      "endLine": 178,
+      "source": "memory",
+      "snippet": "| 文件 | 变化 | |------|------| | `agent/agent.py` | 重写为 v2.0，整合所有模块 | | `server/main.py` | 升级支持连接码、多会话、新 API | | `agent/config.py` | 新增配置选项 | | `web/templates/index.html` | 全新 UI | | `web/static/js/controller.js` | 重写为 v2.0 | | `web/static/css/style.css` | 全新暗色主题 | | `README.md` | 更新为 v2.0 文档 | | `agent/requirements.txt` | 新增可选依赖 | ### 资产累计 - 📝 18+ 篇博客文章 - 🛠️ 10+ 开源项目（RemoteEye 已升级到 v2.0） - 🌐 1 个 Portfolio 网站 - 📄 6 套完整变现方案 ### 收入：¥0（尚未接单） ## RemoteEye v3.0 Pro 全面升级 ### 中午工作 — UI 全面升级 + v3.0 Pro 特性 #### 1. 全新 CSS v3.0 Pro（`web/static/css/style.css`） - 优化深色主题配色（GitHub Dark 风格） - Toast 通知组件 - 录制播放器样式 - 快捷按键面板样式 - 快捷键帮助面板样式 - 移动端响应式布局（768px 断点） - 触摸友好（-webkit-tap-highlight-color） - 文件选中状态高",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T02:00:27.794Z",
+      "lastRecalledAt": "2026-05-19T02:00:27.794Z",
+      "queryHashes": [
+        "37afc109bbbf"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "agent/agent.py",
+        "v2.0",
+        "server/main.py",
+        "agent/config.py",
+        "web/templates/index.html",
+        "web/static/js/controller.js",
+        "web/static/css/style.css",
+        "readme.md"
+      ]
+    },
+    "memory:memory/2026-05-11.md:101:143": {
+      "key": "memory:memory/2026-05-11.md:101:143",
+      "path": "memory/2026-05-11.md",
+      "startLine": 101,
+      "endLine": 143,
+      "source": "memory",
+      "snippet": "- 整合所有新模块 - 连接自动重试（指数退避） - 多控制器并发支持 - 仅查看模式 - 特殊按键组合支持（Ctrl+Alt+Del 等） - 完整的性能追踪 - 后台任务管理 #### 10. 服务器 v2.0 升级（`server/main.py`） - 连接码验证 - 多会话管理 - 设备信息暴露（系统信息、功能列表） - 健康检查 API 增强 #### 11. Web UI v2.0 - 全新暗色主题 CSS - Tab 式侧边栏（设备/连接/工具） - 连接码输入面板 - 质量监控面板（实时 FPS、延迟、带宽） - 文件浏览器（路径显示、列表优化） - 剪贴板面板 - 远程 Shell 面板 - 工具栏快捷操作 ### 新增文件 | 文件 | 行数 | 说明 | |------|------|------| | `agent/diff_capture.py` | 96 | 差分截屏 | | `agent/connection_card.py` | 67 | 连接码系统 | | `agent/session_record.py` | 137 | 会话录制 | | `agent/e2e_crypto.py` | 126 | 端到端加密 | | `agent/quality_monitor.py` | 140 | 质量监控 | | `agent/h264_encoder.py` | 109 | H.264 编码 | | `agent/audio.py` | 74 | 音频转发 | ### 升级文件 | 文件 | 变化 | |------|------| | `",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T02:00:27.794Z",
+      "lastRecalledAt": "2026-05-19T02:00:27.794Z",
+      "queryHashes": [
+        "37afc109bbbf"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "v2.0",
+        "server/main.py",
+        "设备/连接/工具",
+        "agent/diff-capture.py",
+        "agent/connection-card.py",
+        "agent/session-record.py",
+        "agent/e2e-crypto.py",
+        "agent/quality-monitor.py"
+      ]
+    },
+    "memory:memory/2026-05-17.md:25:51": {
+      "key": "memory:memory/2026-05-17.md:25:51",
+      "path": "memory/2026-05-17.md",
+      "startLine": 25,
+      "endLine": 51,
+      "source": "memory",
+      "snippet": "| 资产类型 | 数量 | 最新 | |----------|------|------| | 博客文章 | 25 篇 | Deepfake 检测系统 | | 开源项目 | 27+ 个 | code-review-bot（5/16） | | Portfolio 网站 | 1 个 | 15 个项目展示 | | 书法 AI 字库 | 1 个 | 待 GPU 训练 | | 变现方案 | 6 套 | 已完成 | #### 5. 市场观察（自主研究） - Deepfake 检测需求增长：2026 Q1 AI 图像诈骗案件同比 +340% - AI Agent 测试和记忆管理成为开发者痛点 - MCP 协议集成需求持续上升 - 书法字体定制仍有先发优势（竞品少） ### 待大凯配合（不打扰，记录即可） - [ ] 平台注册（猪八戒/Upwork/Fiverr）— 核心瓶颈 - [ ] GitHub 推送新项目（至少 10 个项目待推送） - [ ] AutoDL GPU 注册（书法字库训练） - [ ] 博客发布（25 篇文章待发布到掘金/知乎） - [ ] 收款方式设置（支付宝/微信/PayPal） ### 收入：¥0（尚未接单） --- *最后更新：2026-05-17 10:00*",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T02:00:27.794Z",
+      "lastRecalledAt": "2026-05-19T02:00:27.794Z",
+      "queryHashes": [
+        "37afc109bbbf"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "code-review-bot",
+        "5/16",
+        "猪八戒/upwork/fiverr",
+        "篇文章待发布到掘金/知乎",
+        "支付宝/微信/paypal",
+        "资产",
+        "类型",
+        "数量"
+      ]
+    },
+    "memory:memory/2026-05-17.md:1:32": {
+      "key": "memory:memory/2026-05-17.md:1:32",
+      "path": "memory/2026-05-17.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# 2026-05-17 工作日志 ## 财务自由任务 - 日常推进 #8（Day 52） ### 上午 — 资产盘点 + 博客创作 + Portfolio 更新 #### 1. 状态盘点 - **Day 52**，上次日志更新：2026-05-10（Day 45），中断 7 天 - Phase 1-2 完成，Phase 3 仍待大凯配合（平台注册 + GitHub 推送 + 收款设置） - 自上次日志以来的新项目：agentic-workflow（5/12）、deepfake-guard（5/13）、agent-memory-toolkit（5/15）、code-review-bot（5/16） #### 2. 新博客文章 - **完成**：《手把手教你用 Python 搭建 Deepfake 深度伪造检测系统》（约4800字） - 覆盖：频域分析（DCT）、EXIF 元数据检查、噪声分布分析、REST API、Web 界面 - 代码量：~400 行核心检测代码，含完整使用示例 - 定位：掘金/V2EX/知乎/安全客 - **资产累计：25 篇博客文章** #### 3. Portfolio 网站更新 - 新增 3 个项目卡片：DeepfakeGuard、Agent Memory Toolkit、Agentic Workflow - 更新统计数据：开源项目 24+ → 27+，博客 24 → 25 - 项目总数：Portfolio 现展示 15 个项目 #### 4. 资产总览 | 资产类型 | 数量 | 最新 | |----------|------|-----",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T02:00:27.794Z",
+      "lastRecalledAt": "2026-05-19T02:00:27.794Z",
+      "queryHashes": [
+        "37afc109bbbf"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "1-2",
+        "agentic-workflow",
+        "5/12",
+        "deepfake-guard",
+        "5/13",
+        "agent-memory-toolkit",
+        "5/15",
+        "code-review-bot"
       ]
     }
   }

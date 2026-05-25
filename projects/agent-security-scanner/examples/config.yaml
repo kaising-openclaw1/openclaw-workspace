@@ -1,0 +1,46 @@
+# Agent Security Scanner — 示例配置
+agent:
+  name: "customer-service-agent"
+  endpoint: "http://localhost:8000/api/chat"
+  api_key: "${AGENT_API_KEY}"
+
+scans:
+  - name: prompt_injection
+    enabled: true
+    test_cases:
+      - role_play: true
+      - instruction_override: true
+      - delimiter_escape: true
+      - multi_language: true
+      - encoded_injection: true
+      - context_overflow: true
+
+  - name: data_leak
+    enabled: true
+    sensitive_patterns:
+      - email
+      - phone
+      - api_key
+      - internal_url
+
+  - name: permission_check
+    enabled: true
+    allowed_tools:
+      - search
+      - summarize
+      - knowledge_base_query
+    denied_tools:
+      - execute_code
+      - send_email
+      - delete_record
+      - transfer_funds
+
+  - name: audit_trail
+    enabled: true
+
+  - name: rate_limit
+    enabled: true
+
+security:
+  min_score: 80
+  auto_block: true

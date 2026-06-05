@@ -1,7 +1,8 @@
 # 🎯 大凯行动清单 - 打破零收入
 
 > 生成时间：2026-05-23 10:00
-> 当前状态：Day 58，资产已就绪，只差临门一脚
+> 最后更新：2026-06-03 10:00
+> 当前状态：Day 69，资产已就绪，只差临门一脚
 > 原则：每个任务标注预计耗时，你可以碎片时间完成
 
 ---
@@ -20,8 +21,8 @@
 - 让朋友帮忙转发
 
 ### 3. 在 V2EX / 知乎发技术文章（20 分钟）
-- 从已有 29 篇博客中选一篇直接发布
-- 推荐发布《手把手教你用 AI Agent 网关：一套 API 统一管理 OpenAI、Claude、DeepSeek》
+- 从已有 33 篇博客中选一篇直接发布
+- 推荐发布《手把手教你用 Python 搭建 AI Agent 评估与测试框架》（最新，热门方向）
 - 文末放 Portfolio 链接
 
 ---
@@ -98,7 +99,8 @@
 ## 作品
 
 Portfolio：https://kaising-openclaw1.github.io/portfolio/
-21 个开源项目，涵盖自动化工具、AI 模板、数据工具等。
+32 个开源项目，涵盖自动化工具、AI Agent、数据工具、安全工具等。
+33 篇技术博客，覆盖 AI Agent、MCP、RAG、Deepfake 检测等前沿方向。
 
 ## 联系
 
@@ -142,7 +144,8 @@ What I can automate:
 • Database management
 
 Why choose me:
-✅ 21+ open-source projects on GitHub
+✅ 32+ open-source projects on GitHub
+✅ 33+ technical blog posts
 ✅ Clean, well-documented code
 ✅ 48-hour delivery
 ✅ 30-day free maintenance

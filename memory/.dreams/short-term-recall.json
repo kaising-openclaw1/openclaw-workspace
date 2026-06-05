@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-21T05:04:51.215Z",
+  "updatedAt": "2026-06-04T05:25:40.395Z",
   "entries": {
     "memory:memory/2026-04-29.md:29:60": {
       "key": "memory:memory/2026-04-29.md:29:60",
@@ -348,6 +348,38 @@
         "agent-memory-toolkit",
         "5/15",
         "code-review-bot"
+      ]
+    },
+    "memory:memory/2026-04-29.md:54:87": {
+      "key": "memory:memory/2026-04-29.md:54:87",
+      "path": "memory/2026-04-29.md",
+      "startLine": 54,
+      "endLine": 87,
+      "source": "memory",
+      "snippet": "- `portfolio/` — 开源工具/作品集 - `fiverr/` — 接单平台资料 **2. 技术教程（3 篇）** - `01-openclaw-skill-dev-basics.md` — OpenClaw 技能开发入门 - `02-competitor-monitoring-guide.md` — 竞品监控保姆级教程 - `03-ai-side-hustle-guide.md` — AI 副业月入 ¥5000+ 攻略 **3. 开源工具** - `quicksite.sh` — 网站健康检查 CLI 工具（已测试通过） - 功能：DNS/SSL/HTTP 检查 + 彩色终端报告 **4. 接单资料** - `fiverr/profile.md` — Fiverr 个人简介 + 3 个 Gig 完整描述 - Gig 1: 自动化脚本定制（$25/$75/$199） - Gig 2: OpenClaw/Codex 技能开发（$49/$149/$399） - Gig 3: 网站/系统监控（$35/$99/$249） - `fiverr/chinese-platforms.md` — 程序员客栈/电鸭/猪八戒 资料 ### 5. 更多教程 - `04-python-scripts-save-time.md` — 5 个 Python 脚本省 2 小时/天 - `tutorials/README.md` — 博客索引与发布策略 ### 6. DashScope API - 已获取 Coding Plan API 资源（DashScope/阿里云） -",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-04T05:25:37.934Z",
+      "lastRecalledAt": "2026-06-04T05:25:40.395Z",
+      "queryHashes": [
+        "41576afbaa01",
+        "dbd729d89acf"
+      ],
+      "recallDays": [
+        "2026-06-04"
+      ],
+      "conceptTags": [
+        "开源工具/作品集",
+        "01-openclaw-skill-dev-basics.md",
+        "03-ai-side-hustle-guide.md",
+        "quicksite.sh",
+        "dns/ssl/http",
+        "fiverr/profile.md",
+        "openclaw/codex",
+        "网站/系统监控"
       ]
     }
   }

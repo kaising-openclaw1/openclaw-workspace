@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-04T05:25:40.395Z",
+  "updatedAt": "2026-06-05T01:26:51.362Z",
   "entries": {
     "memory:memory/2026-04-29.md:29:60": {
       "key": "memory:memory/2026-04-29.md:29:60",
@@ -42,18 +42,20 @@
       "endLine": 106,
       "source": "memory",
       "snippet": "- 配额：5小时 44% / 一周 14% / 一月 18%（2026-04-29 15:57 数据） - ⚠️ API Key 未存储，仅当前会话可用 ### 下一步 - 发布教程到掘金/知乎/V2EX（需手动操作） - GitHub 创建仓库发布 quicksite.sh（需 gh repo create） - 注册 Fiverr 并发布 Gig（需浏览器操作） - 注册程序员客栈/电鸭（需浏览器操作） ### 项目最终结构 ``` /home/kaising/projects/ai-news/ ├── tutorials/ # 11 篇技术教程 + 2 个索引 ├── portfolio/ # 3 个开源工具 + README ├── fiverr/ # 5 份接单资料 ├── index.html # 个人作品集网站 ├── README.md # 项目说明 └── PROGRESS.md # 进展追踪 ``` ### 下一步变现动作 1. 发布 3-5 篇教程到掘金/知乎（引流） 2. GitHub 发布 quicksite.sh（建立作品集） 3. 注册 Fiverr 并发布 3 个 Gig（接单） 4. 注册程序员客栈/电鸭（国内接单）",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-04-30T07:03:19.067Z",
-      "lastRecalledAt": "2026-04-30T07:03:19.067Z",
+      "lastRecalledAt": "2026-06-05T01:26:51.362Z",
       "queryHashes": [
-        "3206742a7e94"
+        "3206742a7e94",
+        "ff4b4e540ad2"
       ],
       "recallDays": [
-        "2026-04-30"
+        "2026-04-30",
+        "2026-06-05"
       ],
       "conceptTags": [
         "发布教程到掘金/知乎/v2ex",
@@ -198,22 +200,24 @@
       "endLine": 29,
       "source": "memory",
       "snippet": "# 2026-05-10 日报 - Day 45 ## 进展 ### 晚上 - 大凯下达\"继续赚钱\"指令 - 状态：Day 45，Phase 1-2 完成，Phase 3 待突破 - AI 日报已推送（18:42）：LLM 文档静默破坏 + Agent 混沌测试 - 完成：新博客文章《手把手教你用 Python 构建文档完整性守护系统》（约5000字） - 基于 arXiv 论文 DELEGATE-52（LLM 静默破坏 25% 文档内容） - 包含完整代码：checksum 引擎 + diff 分析 + 回滚管理 + CLI 工具 - 完成：DocGuard 开源项目 - doc_guard/core.py — DocGuard 主类（protect/verify/rollback API） - doc_guard/checksum.py — SHA-256 校验和引擎 + ChecksumStore 持久化 - doc_guard/diff.py — ContentDiff 差异分析（基于 difflib） - doc_guard/rollback.py — RollbackManager 快照与回滚管理 - doc_guard/cli.py — 命令行工具（protect/verify/rollback/history/status） - tests/test_doc_guard.py — 全面测试套件（20+ 测试用例） - examples/basic_usage.py — 完整使用示例 - setup.py — 安装配置",
-      "recallCount": 3,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 3,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-13T08:35:16.398Z",
-      "lastRecalledAt": "2026-05-21T05:04:51.215Z",
+      "lastRecalledAt": "2026-06-05T01:26:51.362Z",
       "queryHashes": [
         "e0f6f045e914",
         "ced371e9f12e",
-        "a60f8d6d2528"
+        "a60f8d6d2528",
+        "ff4b4e540ad2"
       ],
       "recallDays": [
         "2026-05-13",
         "2026-05-19",
-        "2026-05-21"
+        "2026-05-21",
+        "2026-06-05"
       ],
       "conceptTags": [
         "1-2",
@@ -357,19 +361,22 @@
       "endLine": 87,
       "source": "memory",
       "snippet": "- `portfolio/` — 开源工具/作品集 - `fiverr/` — 接单平台资料 **2. 技术教程（3 篇）** - `01-openclaw-skill-dev-basics.md` — OpenClaw 技能开发入门 - `02-competitor-monitoring-guide.md` — 竞品监控保姆级教程 - `03-ai-side-hustle-guide.md` — AI 副业月入 ¥5000+ 攻略 **3. 开源工具** - `quicksite.sh` — 网站健康检查 CLI 工具（已测试通过） - 功能：DNS/SSL/HTTP 检查 + 彩色终端报告 **4. 接单资料** - `fiverr/profile.md` — Fiverr 个人简介 + 3 个 Gig 完整描述 - Gig 1: 自动化脚本定制（$25/$75/$199） - Gig 2: OpenClaw/Codex 技能开发（$49/$149/$399） - Gig 3: 网站/系统监控（$35/$99/$249） - `fiverr/chinese-platforms.md` — 程序员客栈/电鸭/猪八戒 资料 ### 5. 更多教程 - `04-python-scripts-save-time.md` — 5 个 Python 脚本省 2 小时/天 - `tutorials/README.md` — 博客索引与发布策略 ### 6. DashScope API - 已获取 Coding Plan API 资源（DashScope/阿里云） -",
-      "recallCount": 2,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 2,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-06-04T05:25:37.934Z",
-      "lastRecalledAt": "2026-06-04T05:25:40.395Z",
+      "lastRecalledAt": "2026-06-05T01:26:51.362Z",
       "queryHashes": [
         "41576afbaa01",
-        "dbd729d89acf"
+        "dbd729d89acf",
+        "f157dd41a2cb",
+        "ff4b4e540ad2"
       ],
       "recallDays": [
-        "2026-06-04"
+        "2026-06-04",
+        "2026-06-05"
       ],
       "conceptTags": [
         "开源工具/作品集",
@@ -380,6 +387,37 @@
         "fiverr/profile.md",
         "openclaw/codex",
         "网站/系统监控"
+      ]
+    },
+    "memory:memory/2026-04-30.md:1:29": {
+      "key": "memory:memory/2026-04-30.md:1:29",
+      "path": "memory/2026-04-30.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# 2026-04-30 工作总结 ## 最终成果 **GitHub 项目：22 个** **博客文章：86 篇** **服务类别：46 个** ### 今日产出效率 - 10:04-14:00：约 4 小时 - 创建 22 个 GitHub 项目 - 撰写 86 篇博客文章/服务页 - 完善 46 个服务类别的定价 ### 经验总结 1. **GitHub 是核心** - 22 个项目展示技术实力 2. **博客引流** - 86 篇文章覆盖各种搜索关键词 3. **服务目录** - 46 个服务类别，覆盖广泛需求 4. **持续产出** - 每天都有新项目/文章 ### 下一步 1. 继续产出新项目/文章 2. 准备各平台注册资料 3. 研究竞品定价 4. 等待大凯配合启用 Portfolio 和注册平台",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-05T01:09:14.697Z",
+      "lastRecalledAt": "2026-06-05T01:09:14.697Z",
+      "queryHashes": [
+        "d6640e4604c3"
+      ],
+      "recallDays": [
+        "2026-06-05"
+      ],
+      "conceptTags": [
+        "04-14",
+        "篇博客文章/服务页",
+        "每天都有新项目/文章",
+        "继续产出新项目/文章",
+        "工作",
+        "总结",
+        "最终",
+        "成果"
       ]
     }
   }

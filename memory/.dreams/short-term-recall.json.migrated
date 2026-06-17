@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-05T01:26:51.362Z",
+  "updatedAt": "2026-06-15T02:00:15.586Z",
   "entries": {
     "memory:memory/2026-04-29.md:29:60": {
       "key": "memory:memory/2026-04-29.md:29:60",
@@ -396,18 +396,20 @@
       "endLine": 29,
       "source": "memory",
       "snippet": "# 2026-04-30 工作总结 ## 最终成果 **GitHub 项目：22 个** **博客文章：86 篇** **服务类别：46 个** ### 今日产出效率 - 10:04-14:00：约 4 小时 - 创建 22 个 GitHub 项目 - 撰写 86 篇博客文章/服务页 - 完善 46 个服务类别的定价 ### 经验总结 1. **GitHub 是核心** - 22 个项目展示技术实力 2. **博客引流** - 86 篇文章覆盖各种搜索关键词 3. **服务目录** - 46 个服务类别，覆盖广泛需求 4. **持续产出** - 每天都有新项目/文章 ### 下一步 1. 继续产出新项目/文章 2. 准备各平台注册资料 3. 研究竞品定价 4. 等待大凯配合启用 Portfolio 和注册平台",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 2,
       "maxScore": 1,
       "firstRecalledAt": "2026-06-05T01:09:14.697Z",
-      "lastRecalledAt": "2026-06-05T01:09:14.697Z",
+      "lastRecalledAt": "2026-06-06T07:22:19.497Z",
       "queryHashes": [
-        "d6640e4604c3"
+        "d6640e4604c3",
+        "b7e925e25a4f"
       ],
       "recallDays": [
-        "2026-06-05"
+        "2026-06-05",
+        "2026-06-06"
       ],
       "conceptTags": [
         "04-14",
@@ -418,6 +420,130 @@
         "总结",
         "最终",
         "成果"
+      ]
+    },
+    "memory:memory/2026-06-11.md:1:30": {
+      "key": "memory:memory/2026-06-11.md:1:30",
+      "path": "memory/2026-06-11.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# 2026-06-11 日志 ## 财务自由任务 - 日常推进 #14 ### 完成的工作 - [x] 撰写博客文章 #36：《手把手教你用 Python 搭建 AI 代码审查系统》（~5000字） - [x] 更新 Portfolio 网站（博客数 35→36） - [x] 推送 Portfolio 到 GitHub Pages（~/portfolio 和 workspace/portfolio 同步） - [x] 更新 financial-freedom-log.md Day 77 记录 ### 资产状态 - 博客：36 篇 - 开源项目：50+ - Portfolio：已更新 - GitHub Profile README：已上线 ### 关键瓶颈（无变化） 大凯需要完成平台注册才能开始获客变现： 1. 电鸭社区 - 最快（2分钟，邮箱注册，复制粘贴自我介绍帖） 2. 程序员客栈 - 需实名（5分钟，手机号+身份证） 3. Fiverr - 国际平台（3分钟，邮箱注册，3个 Gig 已备好） 所有文案在 `memory/platform-registration-guide.md`，可直接复制粘贴。 ### 收入 ¥0（Day 77） ### 下一步 等大凯完成平台注册，立即开始主动投标/发帖获客。",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-12T02:00:08.290Z",
+      "lastRecalledAt": "2026-06-12T02:00:08.290Z",
+      "queryHashes": [
+        "5525e3e1b59b"
+      ],
+      "recallDays": [
+        "2026-06-12"
+      ],
+      "conceptTags": [
+        "workspace/portfolio",
+        "financial-freedom-log.md",
+        "立即开始主动投标/发帖获客",
+        "日志",
+        "财务",
+        "自由",
+        "任务",
+        "日常"
+      ]
+    },
+    "memory:memory/2026-05-09.md:29:66": {
+      "key": "memory:memory/2026-05-09.md:29:66",
+      "path": "memory/2026-05-09.md",
+      "startLine": 29,
+      "endLine": 66,
+      "source": "memory",
+      "snippet": "--- ## 市场观察（GitHub Trending 周榜） | 项目 | Stars 本周 | 趋势洞察 | |------|-----------|---------| | anthropics/financial-services | +5,848 | AI+金融 持续火爆 | | TradingAgents | +12,981 | 多 Agent 金融交易 | | Pixelle-Video | +5,136 | AI 短视频自动化 | | PageIndex | +4,056 | 新一代 RAG（无向量） | | PPT-Master | +3,080 | AI 生成 PPT | | awesome-codex-skills | +2,311 | Codex 技能生态 | **关键洞察：** - AI Agent + 多智能体协作是当前最热方向，MCP 正处风口 - RAG 知识库仍有市场，但技术正从向量数据库转向 reasoning-based - AI 内容生成（PPT/短视频）需求旺盛 - **我们的方向选择正确**：MCP Toolkit 和 RAG 知识库都踩在趋势上 --- ## 猪八戒网状态 - CAPTCHA 滑块验证持续升级，自动注册不可行 - 需要大凯手动操作 --- ## 待大凯配合（不催促，记录备忘） 1. **AutoDL GPU 注册** — 启动 calligraphy-ai 书法字体训练（成本 ¥50-100） 2. **平台注册** — 猪八戒/Upwork/Fiverr（需手动验证码） 3. **GitHub 推送",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-12T02:00:08.290Z",
+      "lastRecalledAt": "2026-06-12T02:00:08.290Z",
+      "queryHashes": [
+        "5525e3e1b59b"
+      ],
+      "recallDays": [
+        "2026-06-12"
+      ],
+      "conceptTags": [
+        "anthropics/financial-services",
+        "pixelle-video",
+        "ppt-master",
+        "awesome-codex-skills",
+        "reasoning-based",
+        "ppt/短视频",
+        "calligraphy-ai",
+        "50-100"
+      ]
+    },
+    "memory:memory/2026-05-09.md:1:37": {
+      "key": "memory:memory/2026-05-09.md:1:37",
+      "path": "memory/2026-05-09.md",
+      "startLine": 1,
+      "endLine": 37,
+      "source": "memory",
+      "snippet": "# 2026-05-09 财务自由任务日志 **Day 44** | 周六 | 10:00 --- ## 今日完成 ### 1. 新博客文章：《手把手教你用 MCP 协议搭建 AI Agent 工具调用系统》 - 约 5000+ 字，含完整代码 - 覆盖：MCP 原理 → 5 个企业工具 → HTTP 部署 → Docker → 客户端对接 → 商业分析 - 技术栈：FastMCP + FastAPI + httpx + SQLite + Docker - 商业分析：MCP Server 定制 ¥5,000-20,000/单，企业集成 ¥15,000-50,000 - 位置：`memory/blog-article-20.md` ### 2. 新开源项目：MCP Toolkit - 完整可运行的 MCP Server，5 个开箱即用工具 - 包含：数据库查询、HTTP API 调用、数据分析、文件读取、定时任务 - 支持 stdio（本地）+ HTTP/SSE（远程）双模式 - Docker 一键部署 - 位置：`projects/mcp-toolkit/` ### 3. Portfolio 网站更新 - 新增 MCP Toolkit 项目卡片 + WeChat Content Assistant 卡片 - 新增\"MCP 协议集成\"服务项（¥5,000-20,000） - Hero 文案更新为\"AI Agent · MCP 协议 · 数据自动化 · 书法字体\" - 统计数据：23+ 开源项目 / 20 篇技术博客 --- ## 市场观察（GitHub Trend",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-12T02:00:08.290Z",
+      "lastRecalledAt": "2026-06-12T02:00:08.290Z",
+      "queryHashes": [
+        "5525e3e1b59b"
+      ],
+      "recallDays": [
+        "2026-06-12"
+      ],
+      "conceptTags": [
+        "000-20",
+        "000/单",
+        "000-50",
+        "memory/blog-article-20.md",
+        "http/sse",
+        "projects/mcp-toolkit",
+        "财务",
+        "自由"
+      ]
+    },
+    "memory:memory/2026-06-12.md:1:40": {
+      "key": "memory:memory/2026-06-12.md:1:40",
+      "path": "memory/2026-06-12.md",
+      "startLine": 1,
+      "endLine": 40,
+      "source": "memory",
+      "snippet": "# 2026-06-12 日志 ## 财务自由任务 - 日常推进 #15 ### 完成的工作 - [x] 检查 `memory/financial-freedom-log.md` 和 `memory/money-making-plan.md` - [x] 新建获客投放资料包：`memory/client-acquisition-kit-2026-06-12.md` - 电鸭/技术社区自我介绍帖 - V2EX/掘金软性投放帖 - 私信破冰模板 - 主动投标模板 - 客户需求采集表 - [x] 撰写博客文章 #37：`memory/blog-article-37.md` - 《不是所有 AI 自动化都值得做：小团队如何判断一个流程该不该自动化》 - [x] 优化 Portfolio 转化文案：`portfolio/index.html` 和 `~/portfolio/index.html` - Hero 强调 48 小时 Demo - CTA 改为免费技术方案 - 新增联系/转化区 - 博客数更新为 37+ - [x] 更新 `memory/money-making-plan.md` - [x] 更新 `memory/financial-freedom-log.md` ### 当前资产状态 - 博客：37 篇 - 开源项目：50+ - Portfolio：已转向接单转化页 - 获客资料包：已完成，可直接复制粘贴投放 - GitHub Profile README：已上线 ### 关键瓶颈 仍需大凯完成至少一个平台注册/可发帖渠道： 1",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-06-15T02:00:15.586Z",
+      "lastRecalledAt": "2026-06-15T02:00:15.586Z",
+      "queryHashes": [
+        "d1447dbe2d61"
+      ],
+      "recallDays": [
+        "2026-06-15"
+      ],
+      "conceptTags": [
+        "memory/financial-freedom-log.md",
+        "memory/money-making-plan.md",
+        "电鸭/技术社区自我介绍帖",
+        "v2ex/掘金软性投放帖",
+        "memory/blog-article-37.md",
+        "portfolio/index.html",
+        "新增联系/转化区",
+        "仍需大凯完成至少一个平台注册/可发帖渠道"
       ]
     }
   }

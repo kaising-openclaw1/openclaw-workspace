@@ -175,6 +175,17 @@
 - **关键突破**：从「静态项目+文章」进阶到「静态+动态在线工具」，转化路径从「看到→联系」变「体验→信任→联系」
 - 收入：¥0（尚未接单）
 
+## 2026-06-10 进展（Day 76）
+
+- ✅ Hermes 双实例完全分离（独立 venv + 数据目录）
+  - `.hermes` → deepseek-v4-flash
+  - `.hermes2` → minimax-m3
+  - 共用火山引擎 Ark Agent Plan API
+- ✅ Cron Job 超时修复（300s → 600s）
+- ✅ 技能装载确认（elite-longterm-memory + self-improving + bounty-automation）
+- ✅ 长期记忆系统检查通过
+- AI 日报：6月9-10日 cron 连续超时，正在手动补生成
+
 ## 2026-06-05 进展（Day 71）
 
 - ✅ Portfolio 网站推送更新到 GitHub（新增 Agent Ops/Cost Optimizer/Code Navigator）

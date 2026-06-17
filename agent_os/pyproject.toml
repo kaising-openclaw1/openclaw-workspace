@@ -1,0 +1,19 @@
+[package]
+name = "agent-os"
+version = "0.1.0"
+description = "多机器 Agent 算力操作系统"
+authors = ["小鸣 <kaising-openclaw1>"]
+license = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/kaising-openclaw1/agent-os"
+Documentation = "https://github.com/kaising-openclaw1/agent-os/docs"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "pytest-cov"]
+mesh = ["cryptography"]
+all = ["cryptography", "psutil", "aiohttp", "grpcio"]

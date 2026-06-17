@@ -1,0 +1,197 @@
+"""
+Agent OS — 网络层：gRPC 协议定义
+================================
+"""
+
+syntax = "proto3";
+
+package agent_os.network;
+
+service AgentOS {
+    // 节点间通信
+    rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+    rpc SubmitTask(TaskRequest) returns (TaskResponse);
+    rpc GetTaskStatus(TaskStatusRequest) returns (TaskStatusResponse);
+    rpc StreamTaskOutput(TaskStatusRequest) returns (stream TaskOutput);
+    rpc TransferFile(stream FileChunk) returns (FileTransferResponse);
+
+    // 集群管理
+    rpc JoinCluster(JoinRequest) returns (JoinResponse);
+    rpc LeaveCluster(LeaveRequest) returns (LeaveResponse);
+    rpc ListNodes(Empty) returns (NodeList);
+    rpc GetNodeInfo(Empty) returns (NodeInfo);
+
+    // 资源管理
+    rpc ReportResources(ResourceReport) returns (Empty);
+    rpc RequestResources(ResourceRequest) returns (ResourceAllocation);
+    rpc ReleaseResources(ResourceRelease) returns (Empty);
+}
+
+message HeartbeatRequest {
+    string node_id = 1;
+    string node_name = 2;
+    double timestamp = 3;
+    ResourceUsage resources = 4;
+    repeated string running_tasks = 5;
+}
+
+message HeartbeatResponse {
+    double server_time = 1;
+    repeated string pending_tasks = 2;
+    bool requires_sync = 3;
+}
+
+message TaskRequest {
+    string task_id = 1;
+    string type = 2;
+    bytes payload = 3;
+    int32 priority = 4;
+    double timeout = 5;
+    string source_node = 6;
+    string trace_id = 7;
+}
+
+message TaskResponse {
+    string task_id = 1;
+    bool accepted = 2;
+    string message = 3;
+}
+
+message TaskStatusRequest {
+    string task_id = 1;
+}
+
+message TaskStatusResponse {
+    string task_id = 1;
+    string status = 2;
+    bytes result = 3;
+    string error = 4;
+    double progress = 5;
+    double started_at = 6;
+    double completed_at = 7;
+}
+
+message TaskOutput {
+    string task_id = 1;
+    string stream = 2;  // stdout / stderr
+    bytes data = 3;
+    int32 sequence = 4;
+}
+
+message FileChunk {
+    string transfer_id = 1;
+    string filename = 2;
+    bytes data = 3;
+    int32 sequence = 4;
+    bool is_last = 5;
+    string checksum = 6;
+}
+
+message FileTransferResponse {
+    string transfer_id = 1;
+    bool success = 2;
+    string path = 3;
+    string checksum = 4;
+    int64 size_bytes = 5;
+}
+
+message JoinRequest {
+    string node_id = 1;
+    string node_name = 2;
+    string address = 3;
+    int32 port = 4;
+    string role = 5;
+    ResourceUsage resources = 6;
+}
+
+message JoinResponse {
+    bool accepted = 1;
+    string cluster_id = 2;
+    repeated PeerInfo existing_nodes = 3;
+    string message = 4;
+}
+
+message LeaveRequest {
+    string node_id = 1;
+    string reason = 2;
+}
+
+message LeaveResponse {
+    bool acknowledged = 1;
+}
+
+message PeerInfo {
+    string node_id = 1;
+    string node_name = 2;
+    string address = 3;
+    int32 port = 4;
+    string role = 5;
+    ResourceUsage resources = 6;
+    double last_seen = 7;
+}
+
+message NodeList {
+    repeated PeerInfo nodes = 1;
+    int32 total_count = 2;
+    int32 online_count = 3;
+}
+
+message NodeInfo {
+    string node_id = 1;
+    string node_name = 2;
+    string version = 3;
+    string role = 4;
+    ResourceUsage resources = 5;
+    repeated string capabilities = 6;
+    double uptime = 7;
+}
+
+message ResourceUsage {
+    double cpu_percent = 1;
+    double memory_percent = 2;
+    double disk_percent = 3;
+    int32 gpu_count = 4;
+    double gpu_memory_percent = 5;
+    double network_rx_bytes = 6;
+    double network_tx_bytes = 7;
+    int32 active_tasks = 8;
+}
+
+message ResourceReport {
+    string node_id = 1;
+    ResourceUsage usage = 2;
+    repeated ResourceSlot available = 3;
+}
+
+message ResourceSlot {
+    string slot_id = 1;
+    string type = 2;  // cpu / gpu / memory
+    double capacity = 3;
+    double allocated = 4;
+    map<string, string> attributes = 5;
+}
+
+message ResourceRequest {
+    string task_id = 1;
+    double cpu_cores = 2;
+    int32 gpu_count = 3;
+    double memory_gb = 4;
+    double disk_gb = 5;
+    double max_cost_per_hour = 6;
+    map<string, string> constraints = 7;
+}
+
+message ResourceAllocation {
+    string allocation_id = 1;
+    string node_id = 2;
+    ResourceSlot slot = 3;
+    bool accepted = 4;
+    string message = 5;
+}
+
+message ResourceRelease {
+    string allocation_id = 1;
+    string node_id = 2;
+}
+
+message Empty {}

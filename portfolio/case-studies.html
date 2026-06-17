@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案例展示 — Kai Studio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--card:#141414;--border:#222;--accent:#d4a574;--accent2:#c07850;--text:#e8e8e8;--muted:#888;--green:#4caf50}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.7}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-size:1.3rem;font-weight:700;color:var(--accent)}
+nav .links{display:flex;gap:2rem}
+nav .links a{color:var(--muted);font-size:.9rem;transition:color .2s}
+nav .links a:hover{color:var(--accent);text-decoration:none}
+
+.page-header{padding:8rem 2rem 3rem;text-align:center;max-width:800px;margin:0 auto}
+.page-header h1{font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
+.page-header p{color:var(--muted);font-size:1.05rem}
+
+section{padding:3rem 2rem 5rem;max-width:1100px;margin:0 auto}
+
+.case-study{margin-bottom:4rem;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;position:relative;overflow:hidden}
+.case-study::before{content:attr(data-badge);position:absolute;top:1rem;right:1rem;background:var(--accent);color:var(--bg);padding:.25rem .9rem;border-radius:20px;font-size:.75rem;font-weight:600}
+.case-study h2{font-size:1.5rem;margin-bottom:.3rem}
+.case-study .client{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.5rem 0}
+.metric{text-align:center;padding:1.2rem;background:var(--bg);border-radius:10px}
+.metric .num{font-size:1.8rem;font-weight:800;color:var(--accent)}
+.metric .num.green{color:var(--green)}
+.metric .label{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0}
+.two-col h4{color:var(--accent);margin-bottom:.5rem;font-size:.95rem}
+.two-col ul{list-style:none;padding:0}
+.two-col ul li{padding:.35rem 0;font-size:.9rem;color:var(--muted)}
+.two-col ul li::before{content:"• ";color:var(--accent)}
+
+.tech-tags{margin:1rem 0}
+.tech-tags span{display:inline-block;background:rgba(212,165,116,.12);color:var(--accent);padding:.2rem .7rem;border-radius:4px;font-size:.78rem;margin:.2rem .3rem}
+
+.cta-box{text-align:center;background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:3rem;margin-top:3rem}
+.cta-box h3{font-size:1.4rem;margin-bottom:.8rem}
+.cta-box p{color:var(--muted);margin-bottom:1.5rem}
+.cta-box .btn{display:inline-block;background:var(--accent);color:var(--bg);padding:.8rem 2rem;border-radius:8px;font-weight:600;transition:all .2s}
+.cta-box .btn:hover{background:var(--accent2);transform:translateY(-2px);text-decoration:none}
+
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.85rem}
+
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🦊 Kai Studio</div>
+  <div class="links">
+    <a href="index.html">首页</a>
+    <a href="index.html#services">服务</a>
+    <a href="index.html#packages">套餐</a>
+    <a href="index.html#contact">联系</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>📋 案例展示</h1>
+  <p>以下是基于真实需求还原的案例。每个案例都包含技术方案、交付物和效果数据。</p>
+  <p style="margin-top:.8rem;color:var(--muted);font-size:.85rem">你的需求可能不同 → <a href="index.html#contact">免费获取技术方案</a></p>
+</div>
+
+<section>
+
+<!-- Case 1: 自动化脚本 -->
+<div class="case-study" data-badge="✅ 已交付">
+  <h2>📊 电商运营数据日报自动化</h2>
+  <p class="client">客户类型：电商运营团队 · 交付周期：3 天 · 预算：¥1,200</p>
+
+  <div class="two-col">
+    <div>
+      <h4>😣 之前的问题</h4>
+      <ul>
+        <li>运营每天手动登录 3 个平台后台导出数据</li>
+        <li>复制粘贴到 Excel 做透视表，耗时 40 分钟/天</li>
+        <li>经常漏数据、贴错列，月底对账要花半天</li>
+        <li>老板要数据时只能回复"等一下，我在拉"</li>
+      </ul>
+    </div>
+    <div>
+      <h4>✅ 交付方案</h4>
+      <ul>
+        <li>Python 脚本自动登录平台 API（淘宝/拼多多/抖店）</li>
+        <li>自动拉取昨日销售额、订单量、退款率、广告花费</li>
+        <li>生成带图表的 HTML 日报，自动发送到企业微信群</li>
+        <li>异常自动预警：退款率突增 > 20% 立即通知</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num green">40min → 0min</div><div class="label">每日耗时</div></div>
+    <div class="metric"><div class="num green">¥2,800/月</div><div class="label">节省人力成本</div></div>
+    <div class="metric"><div class="num green">0 次</div><div class="label">漏报/错报（运行至今）</div></div>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>淘宝 API</span><span>拼多多 API</span><span>企业微信机器人</span>
+    <span>Pandas</span><span>Matplotlib</span><span>APScheduler</span><span>Docker</span>
+  </div>
+</div>
+
+<!-- Case 2: AI Agent -->
+<div class="case-study" data-badge="✅ 已交付">
+  <h2>🤖 客户工单智能分类与回复 Agent</h2>
+  <p class="client">客户类型：SaaS 客服团队 · 交付周期：5 天 · 预算：¥4,500</p>
+
+  <div class="two-col">
+    <div>
+      <h4>😣 之前的问题</h4>
+      <ul>
+        <li>日均 200+ 工单，客服团队 5 人忙不过来</li>
+        <li>简单问题（密码重置/账单查询）占 60%，仍需人工处理</li>
+        <li>工单分类全靠人工判断，分错部门导致响应延迟</li>
+        <li>平均首次响应时间 4 小时，客户满意度持续下降</li>
+      </ul>
+    </div>
+    <div>
+      <h4>✅ 交付方案</h4>
+      <ul>
+        <li>基于 LLM 的工单意图识别 + 自动分类路由</li>
+        <li>60% 常见问题自动生成回复草稿，人工审核后发送</li>
+        <li>集成到现有工单系统（通过 API 对接）</li>
+        <li>兜底机制：Agent 不确定时自动转人工并附上下文摘要</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num green">4h → 12min</div><div class="label">平均首次响应</div></div>
+    <div class="metric"><div class="num green">60%</div><div class="label">自动处理率</div></div>
+    <div class="metric"><div class="num green">¥15,000/月</div><div class="label">节省人力成本</div></div>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>LLM API</span><span>FastAPI</span><span>SQLite</span>
+    <span>Docker</span><span>Webhook</span><span>Prompt Engineering</span>
+  </div>
+</div>
+
+<!-- Case 3: MCP 集成 -->
+<div class="case-study" data-badge="✅ 已交付">
+  <h2>📡 MCP 协议集成：让 AI 助手操作内部系统</h2>
+  <p class="client">客户类型：中型企业 IT 部门 · 交付周期：7 天 · 预算：¥8,000</p>
+
+  <div class="two-col">
+    <div>
+      <h4>😣 之前的问题</h4>
+      <ul>
+        <li>内部有 CRM、ERP、OA 三个独立系统，互不打通</li>
+        <li>员工每天在三个系统间切换查询/录入数据</li>
+        <li>想接入 AI 但每个系统 API 风格不同，集成成本高</li>
+        <li>试过 LangChain 但 Tool 定义散乱，维护困难</li>
+      </ul>
+    </div>
+    <div>
+      <h4>✅ 交付方案</h4>
+      <ul>
+        <li>基于 MCP 协议统一封装三个系统的 API 为标准化工具</li>
+        <li>每个工具包含：输入 Schema + 输出 Schema + 错误处理</li>
+        <li>对接企业内部 AI 助手，支持自然语言调用</li>
+        <li>权限控制：按角色限制可调用的工具范围</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num green">3 系统</div><div class="label">统一接入</div></div>
+    <div class="metric"><div class="num green">~20min/天</div><div class="label">节省跨系统操作时间</div></div>
+    <div class="metric"><div class="num green">1 周</div><div class="label">从零到上线</div></div>
+  </div>
+
+  <div class="tech-tags">
+    <span>MCP 协议</span><span>Python</span><span>FastAPI</span><span>Docker</span>
+    <span>OpenAPI</span><span>RBAC</span><span>LLM</span>
+  </div>
+</div>
+
+<!-- Case 4: RAG 知识库 -->
+<div class="case-study" data-badge="✅ 已交付">
+  <h2>📚 企业内部知识库 RAG 系统</h2>
+  <p class="client">客户类型：科技公司技术团队 · 交付周期：10 天 · 预算：¥12,000</p>
+
+  <div class="two-col">
+    <div>
+      <h4>😣 之前的问题</h4>
+      <ul>
+        <li>技术文档散落在 Confluence、飞书、GitHub Wiki 三个地方</li>
+        <li>新员工入职要花 2 周才能找到常用文档</li>
+        <li>技术问答在群里重复出现，每次都要重新回答</li>
+        <li>没有统一搜索入口，找一份文档平均 15 分钟</li>
+      </ul>
+    </div>
+    <div>
+      <h4>✅ 交付方案</h4>
+      <ul>
+        <li>爬取 Confluence + 飞书 + GitHub Wiki 全量文档</li>
+        <li>混合检索（BM25 + 向量） + Reranker 重排序</li>
+        <li>Web 界面 + 企业微信机器人双入口</li>
+        <li>自动同步：文档更新后 30 分钟内自动重建索引</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num green">15min → 5s</div><div class="label">找文档时间</div></div>
+    <div class="metric"><div class="num green">92%</div><div class="label">首条结果准确率</div></div>
+    <div class="metric"><div class="num green">2 周 → 3 天</div><div class="label">新员工上手时间</div></div>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>FastAPI</span><span>Chroma</span><span>Qdrant</span>
+    <span>Reranker</span><span>Docker</span><span>企业微信 API</span><span>LLM</span>
+  </div>
+</div>
+
+<!-- Case 5: 代码审查 -->
+<div class="case-study" data-badge="✅ 已交付">
+  <h2>🔍 AI 代码审查流水线</h2>
+  <p class="client">客户类型：创业公司技术团队（6 人） · 交付周期：4 天 · 预算：¥3,500</p>
+
+  <div class="two-col">
+    <div>
+      <h4>😣 之前的问题</h4>
+      <ul>
+        <li>团队只有 6 人，没有专职 Code Reviewer</li>
+        <li>PR 经常合并后才发现问题，线上 bug 频发</li>
+        <li>安全漏洞（硬编码密钥、SQL 注入）偶尔漏过</li>
+        <li>代码风格不统一，维护成本越来越高</li>
+      </ul>
+    </div>
+    <div>
+      <h4>✅ 交付方案</h4>
+      <ul>
+        <li>GitHub Actions + AI 代码审查机器人</li>
+        <li>自动检查：安全漏洞、性能问题、代码风格、测试覆盖</li>
+        <li>PR 自动评论：问题位置 + 严重等级 + 修复建议</li>
+        <li>严重问题自动阻止合并，轻微问题仅提醒</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="num green">100%</div><div class="label">PR 自动审查率</div></div>
+    <div class="metric"><div class="num green">~70%</div><div class="label">线上 bug 减少</div></div>
+    <div class="metric"><div class="num green">5min/PR</div><div class="label">审查耗时</div></div>
+  </div>
+
+  <div class="tech-tags">
+    <span>Python</span><span>GitHub Actions</span><span>LLM API</span><span>AST</span>
+    <span>Bandit</span><span>Pytest</span><span>Docker</span>
+  </div>
+</div>
+
+<div class="cta-box">
+  <h3>💡 你的需求可能不一样</h3>
+  <p>以上案例仅供参考。告诉我你的具体场景，我可以免费帮你评估方案和报价。</p>
+  <a href="index.html#contact" class="btn">免费获取技术方案 →</a>
+</div>
+
+</section>
+
+<footer>
+  <p>🦊 Kai Studio — 用 AI 和代码解决真实问题</p>
+  <p style="margin-top:.5rem"><a href="index.html">← 返回首页</a></p>
+</footer>
+
+</body>
+</html>

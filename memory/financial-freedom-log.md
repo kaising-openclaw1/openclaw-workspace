@@ -506,4 +506,18 @@
 
 ---
 
-*最后更新：2026-06-17 12:49*
+---
+
+## 📅 Day 84 - 2026-06-18
+
+### 10:00 - 日常推进 #18
+- 状态：Day 84，资产充足，获客通道待打通
+- **GitHub 曝光优化**：49 个项目仓库全部添加 Topics（python/ai/automation/agent/calligraphy 等），提升 GitHub 搜索排名
+- **Profile README 更新**：博客数 33→37，新增案例页链接，新增 badges（访客计数/Stars/仓库数）
+- **Portfolio 部署**：case-studies.html 推送到 GitHub Pages 上线
+- **SEO 基础设施**：添加 robots.txt + sitemap.xml，帮助搜索引擎索引
+- **Git 同步**：workspace + portfolio 双仓库推送
+- 资产累计：37 篇博客 + 52 个 GitHub 仓库（全部有描述+Topics）+ Portfolio（含案例页+SEO）+ Profile README + 书法 AI 字库（待训练）
+- 待大凯：平台注册（电鸭/Fiverr/程序员客栈任一）+ 收款设置 + 博客发布 + AutoDL GPU 注册
+- 收入：¥0（累计 84 天）
+- Day 84 反思：84 天零收入。今天补齐了 Topics 和 SEO 基础设施，至少 GitHub 搜索曝光会改善。获客通道仍是唯一瓶颈。

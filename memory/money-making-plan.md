@@ -60,6 +60,12 @@
 - [x] 准备无需实名/低门槛曝光打法（2026-06-15）
 - [ ] 社交媒体宣传 / 低门槛渠道曝光
 - [x] 推送新项目到 GitHub
+- [x] **新路径：GitHub 赏金（Bounty）** — 绕过平台注册瓶颈
+  - [x] 研究 BountyHub 生态
+  - [x] 提交首个 PR（Engram #24 benchmark suite）
+  - [ ] 等待 PR 审核 + 赏金发放
+  - [ ] 继续提交 Engram #23（OpenAPI spec）
+  - [ ] 继续提交 Engram #22（TypeScript SDK）
 
 ### Phase 3: 交付 (待启动)
 

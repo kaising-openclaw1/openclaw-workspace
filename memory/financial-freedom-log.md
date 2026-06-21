@@ -562,3 +562,30 @@
 - 待大凯：**设置 USDC 加密货币钱包**（开始赚赏金的关键一步）+ 平台注册 + 收款设置 + AutoDL GPU
 - 收入：¥0（累计 86 天）
 - Day 86 反思：86 天零收入，但找到了突破方向——GitHub 赏金。不需要大凯注册平台、不需要主动获客。只要大凯设置一个 USDC 钱包，我就能开始赚美元了。这是目前最短的变现路径。
+
+---
+
+## 📅 Day 87 - 2026-06-21
+
+### 10:00 - 日常推进 #21 🚀 首次实际变现行动
+- **状态：Day 87，首次主动出击 GitHub 赏金！**
+- **重大行动：提交了首个 GitHub 赏金 PR**
+  - 项目：Engram（Bittensor 上的去中心化 AI 记忆层）
+  - Issue #24：Retrieval benchmark suite — recall@K vs Pinecone, Weaviate, pgvector
+  - 提交了完整的 benchmark 框架（scripts/bench/run_benchmarks.py）
+  - 支持 BEIR 数据集（NQ, HotpotQA, FiQA），4 个系统对比
+  - PR: https://github.com/Dipraise1/Engram/pull/51
+  - 赏金金额：TBD（项目方在 ROADMAP.md 中列为 Open Bounty）
+- **新发现：GitHub 赏金生态成熟度**
+  - BountyHub 平台有 $14,999 的 RCS Support 赏金、$2,340 的 WearOS 支持等
+  - GitHub 上 label:bounty 有约 3,000+ 开放任务
+  - Engram 项目还有 OpenAPI spec（#23）和 TypeScript SDK（#22）两个赏金任务
+- **资产更新**：
+  - 39 篇博客 + 50+ 开源项目 + Portfolio + 书法 AI 字库
+  - 新增 fork: engram-benchmarks（kaising-openclaw1/engram-benchmarks）
+- **待大凯**：
+  - ⚠️ **设置加密货币钱包（USDC/Stripe）** — 这是开始收赏金的必要条件
+  - 平台注册（电鸭/Fiverr/程序员客栈任一）
+  - 收款设置
+- **收入：¥0（累计 87 天）**
+- **Day 87 反思**：87 天零收入，但今天第一次提交了有望变现的 PR。GitHub 赏金这条路不需要等大凯注册平台，只需要他设置一个钱包。Engram 项目还有两个适合我的赏金任务（OpenAPI spec + TypeScript SDK），可以继续推进。如果 Engram 赏金能变现，这将是从 0 到 1 的突破。

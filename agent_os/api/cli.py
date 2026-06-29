@@ -9,6 +9,7 @@ import asyncio
 import json
 import logging
 import os
+import signal
 import sys
 import time
 from typing import Any, Dict, List, Optional
@@ -180,12 +181,26 @@ async def _cmd_start(args):
     print(f"   Port:     {config.listen_port}")
     print(f"\n   按 Ctrl+C 停止\n")
 
-    # 保持运行
-    try:
-        while True:
-            await asyncio.sleep(1)
-    except KeyboardInterrupt:
+    # 保持运行（使用 Event 实现优雅退出）
+    stop_event = asyncio.Event()
+    
+    def _signal_handler():
         print("\n正在关闭...")
+        stop_event.set()
+    
+    # 注册信号处理
+    loop = asyncio.get_event_loop()
+    try:
+        loop.add_signal_handler(signal.SIGINT, _signal_handler)
+        loop.add_signal_handler(signal.SIGTERM, _signal_handler)
+    except (NotImplementedError, ValueError):
+        pass  # Windows 不支持 add_signal_handler
+    
+    try:
+        await stop_event.wait()
+    except KeyboardInterrupt:
+        pass
+    finally:
         await engine.shutdown("ctrl_c")
 
 

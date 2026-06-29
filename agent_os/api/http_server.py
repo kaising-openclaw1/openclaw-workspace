@@ -8,6 +8,7 @@ import asyncio
 import json
 import logging
 import os
+import signal
 import time
 from typing import Any, Dict, Optional
 
@@ -120,11 +121,25 @@ async def start_dashboard(host: str = "127.0.0.1", port: int = 8080):
     print(f"🌐 Dashboard: http://{host}:{port}")
     print(f"   API:       http://{host}:{port}/api/status")
 
-    # 保持运行
+    # 保持运行（使用 Event 实现优雅退出）
+    stop_event = asyncio.Event()
+    
+    def _signal_handler():
+        print("\n正在关闭 HTTP 服务...")
+        stop_event.set()
+    
+    loop = asyncio.get_event_loop()
     try:
-        while True:
-            await asyncio.sleep(3600)
+        loop.add_signal_handler(signal.SIGINT, _signal_handler)
+        loop.add_signal_handler(signal.SIGTERM, _signal_handler)
+    except (NotImplementedError, ValueError):
+        pass
+    
+    try:
+        await stop_event.wait()
     except KeyboardInterrupt:
+        pass
+    finally:
         await runner.cleanup()
 
 

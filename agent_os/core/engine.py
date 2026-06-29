@@ -242,7 +242,10 @@ class AgentOSEngine:
         logger.info("💻 资源管理已初始化")
 
         if tasks:
-            await asyncio.gather(*tasks)
+            results = await asyncio.gather(*tasks, return_exceptions=True)
+            for i, r in enumerate(results):
+                if isinstance(r, Exception):
+                    logger.error(f"子系统初始化失败: {r}")
 
     async def _load_plugins(self):
         """发现并加载插件"""
@@ -419,14 +422,16 @@ class AgentOSEngine:
         raise ValueError(f"未知任务类型: {task_type}")
 
     async def _handle_execute(self, payload: Dict[str, Any]) -> Dict[str, Any]:
-        """执行命令"""
+        """执行命令（安全模式：shell=False）"""
+        import shlex
         import subprocess
         command = payload.get("command", "")
         timeout = payload.get("timeout", 30)
 
         try:
+            cmd_list = shlex.split(command)
             result = subprocess.run(
-                command, shell=True, capture_output=True, text=True,
+                cmd_list, shell=False, capture_output=True, text=True,
                 timeout=timeout,
             )
             return {

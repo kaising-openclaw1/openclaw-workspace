@@ -796,8 +796,10 @@ def test_validation_rejection():
     engine.executor = LowConfExecutor()
     stats = engine.run(graph)
 
-    assert stats["tasks_failed"] == 1, f"Expected 1 failure, got {stats}"
-    assert stats["total_retries"] == 1, f"Expected 1 retry, got {stats}"
+    if stats["tasks_failed"] != 1:
+        raise AssertionError(f"Expected 1 failure, got {stats}")
+    if stats["total_retries"] != 1:
+        raise AssertionError(f"Expected 1 retry, got {stats}")
     print("  ✅ Test passed: validation rejection works correctly")
     return stats
 
@@ -860,7 +862,8 @@ def test_dynamic_dag():
     engine._execute_task = patched_execute
     stats = engine.run(graph)
 
-    assert stats["tasks_completed"] == 2, f"Expected 2 completed, got {stats}"
+    if stats["tasks_completed"] != 2:
+        raise AssertionError(f"Expected 2 completed, got {stats}")
     print("  ✅ Test passed: dynamic DAG works correctly")
     return stats
 

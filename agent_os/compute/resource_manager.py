@@ -166,10 +166,13 @@ class LocalProvider(ComputeProvider):
         )
 
     async def execute(self, command: str, timeout: float = 300) -> Tuple[int, str, str]:
+        import shlex
         import subprocess
         try:
+            # 安全执行：shell=False 防止命令注入
+            cmd_list = shlex.split(command)
             result = subprocess.run(
-                command, shell=True, capture_output=True, text=True,
+                cmd_list, shell=False, capture_output=True, text=True,
                 timeout=timeout,
             )
             return result.returncode, result.stdout, result.stderr
@@ -336,9 +339,19 @@ class ResourceManager:
 
     async def start_monitoring(self, interval: float = 30.0):
         """启动资源监控"""
+        self._monitor_stop = asyncio.Event()
+        
         async def _monitor():
-            while True:
-                await asyncio.sleep(interval)
+            while not self._monitor_stop.is_set():
+                try:
+                    await asyncio.wait_for(
+                        self._monitor_stop.wait(),
+                        timeout=interval,
+                    )
+                    break
+                except asyncio.TimeoutError:
+                    pass
+                
                 for pid, provider in list(self._providers.items()):
                     try:
                         healthy = await provider.health_check()

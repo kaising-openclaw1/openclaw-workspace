@@ -24,7 +24,9 @@ try:
     CRYPTO_AVAILABLE = True
 except ImportError:
     CRYPTO_AVAILABLE = False
-    logger.warning("cryptography 库未安装，使用回退加密（不安全！）")
+    logger.error("cryptography 库未安装！加密功能不可用。")
+    logger.error("请安装: pip install cryptography")
+    logger.error("安全飞地将在无加密模式下运行（仅用于开发测试）")
 
 
 # ── 常量 ──────────────────────────────────────────────

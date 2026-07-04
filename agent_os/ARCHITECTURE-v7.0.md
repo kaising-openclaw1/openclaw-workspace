@@ -1,6 +1,7 @@
-# Agent OS v7.0 — 下一代 AI 编码 Agent 架构
+# Agent OS v7.1 — 下一代 AI 编码 Agent 架构
 
-> 基于 2026-06-26 全面研究：ChatGPT/OpenAI Codex 设计哲学 · Google 生产级 Agent 原则 · Claude Code 512K 行泄露源码逆向 · 2026 行业五大转变
+> 基于 2026-06-26 全面研究 + 2026-06-29 Anthropic 近 3 个月产品追踪（v2.1.69→v2.1.141+, 70+ releases）
+> 研究来源：ChatGPT/OpenAI Codex 设计哲学 · Google 生产级 Agent 原则 · Claude Code 512K 行泄露源码逆向 · 2026 行业五大转变 · Anthropic 3 个月产品迭代分析
 > 核心理念：**不做 Claude Code 的平替，做 Claude Code 的下一代**
 
 ---
@@ -117,6 +118,60 @@ KAIROS（自主守护进程模式）、ULTRAPLAN（云端深度规划）、多 A
 用游戏引擎技术做终端 UI。这不是"花哨"——这是响应式实时交互的必要条件。
 
 **我们的结论**：终端 UI 是产品体验的核心，不是"命令行输出"。
+
+---
+
+## 一B、2026 年 4-6 月 Anthropic 产品迭代的 5 个新教训
+
+> 基于 2026-06-29 对 Claude Code v2.1.69→v2.1.141+ 共 70+ 个 release 的研究
+
+### 新教训 1：KAIROS 验证了异步模式方向
+
+3 月 31 日源码泄露暴露了 KAIROS——Claude Code 的异步后台 Agent 模式，代码已完整实现但被编译标志隐藏。KAIROS 是一个持久化守护进程，可以：
+- 在用户离线时自主工作
+- 主动监控项目变化
+- 在适当时机发起操作
+
+**对我们的意义**：双模战略得到直接验证。Claude Code 团队也在做同样的事，只是还没发布。窗口期存在但有限。
+
+### 新教训 2：NO_FLICKER 证明终端渲染是竞争维度
+
+v2.1.90（4 月 1 日）引入了 NO_FLICKER 渲染引擎，专门解决终端闪烁问题。同时：
+- Focus View：专注模式，Agent 知道用户只看到最终消息，因此写更自包含的摘要
+- 修复了 8 个终端（Ghostty、Kitty、Alacritty、WezTerm、foot、rio、Contour）的 16 色调色板问题
+
+**对我们的意义**：终端 UI 不是"锦上添花"，是核心产品体验。Textual 框架（Python）值得在 Phase 2 评估。
+
+### 新教训 3：企业安全功能成为主战场
+
+4-6 月 Claude Code 的企业安全投入：
+- **Workload Identity Federation**（6 月 17 日 GA）：无密钥认证，兼容任何 OIDC 身份提供商
+- **PID 命名空间隔离**：Linux 子进程沙箱
+- **OS CA 证书信任**：企业 TLS 代理无需额外设置
+- **OTEL 环境变量隔离**：子进程不再继承 OTEL_* 变量
+- **凭证擦除**：防止敏感信息泄露
+
+**对我们的意义**：安全不是"合规功能"，是产品差异化的核心。Agent OS 的 Security Enclave（393 行）方向正确但需要扩展。Phase 1 应加入 OTEL 隔离和基础 WIF 支持。
+
+### 新教训 4：插件系统已成熟
+
+v2.1.128 支持：
+- `--plugin-dir` 接受 `.zip` 插件包
+- MCP 工具计数（标记零工具服务器）
+- `workspace` 成为保留 MCP 服务器名
+- MCP OAuth RFC 9728 支持
+- 500K 结果持久化
+
+**对我们的意义**：Agent OS 的 plugin_system.py 是 v1.0 遗留代码，需要按 MCP 标准重写。插件系统应该基于 MCP 协议，而不是自研协议。
+
+### 新教训 5：Fable 5 被暂停 = 开源机会窗口
+
+6 月 9 日发布 Claude Fable 5（首个公开 Mythos 级模型），6 月 12 日被美国政府要求全球暂停。Anthropic 营收从 $14B→$47B 但地缘政治风险上升。
+
+**对我们的意义**：
+- 闭源模型的不确定性增加，开源替代方案的价值上升
+- Agent OS 应该保持模型无关，支持多种后端
+- 企业客户可能更倾向于可本地部署的开源方案
 
 ---
 
@@ -260,9 +315,11 @@ v6.0 的"双环"（外环扁平消息 + 内环 DAG）本质上是同一个交互
 
 这比"双环"更根本——它改变了用户与 Agent 的关系。
 
-### 3.4 四层上下文管道
+### 3.4 四层上下文管道（v7.1 更新：Phase 0 从 3 层起步）
 
-基于 Claude Code 泄露分析 + Google 记忆分层理论：
+基于 Claude Code 泄露分析 + Google 记忆分层理论 + Anthropic 3 个月追踪：
+
+**Claude Code 有 5 层上下文压缩**（Snip→Micro→Collapse→Auto→Reactive），我们的 Phase 0 原计划 2 层不够。**v7.1 修正：Phase 0 直接做 3 层，Phase 2 扩展到 4 层。**
 
 ```
 Layer 1: 会话上下文（Session Context）
@@ -277,16 +334,16 @@ Layer 2: 项目上下文（Project Context）
   └─ 存储：文件系统（.agent-os/ 目录）
   └─ 预算：20% 总 token
 
-Layer 3: 长期记忆（Long-term Memory）
+Layer 3: 工具上下文（Tool Context）—— Phase 0 实现
+  └─ MCP 工具定义、工具返回结果
+  └─ 按需加载（不是所有工具都注入）
+  └─ 预算：10% 总 token
+
+Layer 4: 长期记忆（Long-term Memory）—— Phase 2 实现
   └─ 跨会话的知识积累
   └─ 用户偏好、常见错误、项目历史
   └─ 存储：向量数据库（SQLite + embeddings）
   └─ 检索：语义搜索（仅相关片段）
-  └─ 预算：10% 总 token
-
-Layer 4: 工具上下文（Tool Context）
-  └─ MCP 工具定义、工具返回结果
-  └─ 按需加载（不是所有工具都注入）
   └─ 预算：10% 总 token
 ```
 
@@ -474,9 +531,16 @@ Agent OS 三者都能做:
 
 ---
 
-## 五、代码量预算（修正版）
+## 五、代码量预算（v7.1 修正版）
 
-基于 v6.0 评估的教训 + Claude Code 泄露的实际数据：
+基于 v6.0 评估的教训 + Claude Code 泄露的实际数据 + Anthropic 3 个月追踪：
+
+**v7.1 关键调整**：
+- Phase 0 工具从 5 个增加到 10 个（Claude Code 有 40+，10 个是 MVP 最低要求）
+- Phase 0 上下文从 2 层增加到 3 层（会话+项目+工具，长期记忆推迟到 Phase 2）
+- 新增 OTEL 隔离模块（Phase 1，Claude Code v2.1.128 引入）
+- 新增 WIF 基础支持（Phase 2，Claude Code 6 月 17 日 GA）
+- 终端 UI 评估 Textual 框架（Phase 2，替代 Rich）
 
 ```
 Layer 0: Bootstrap (~500 LOC)
@@ -541,20 +605,27 @@ Claude Code: 512,000 LOC
 
 ### Phase 0：Engine 核心（2 周）
 
+**v7.1 调整**：工具从 5 个→10 个，上下文从 2 层→3 层，总 LOC 从 ~2,000→~2,500
+
 ```
-Week 1: Engine Core
-  ├─ engine_core.py (500 LOC) — Agent Loop
-  ├─ message_history.py (300 LOC)
-  ├─ tool_registry.py (300 LOC)
-  └─ core_tools.py (500 LOC) — 5 个基础工具
+Week 1: Engine Core + 基础工具
+  ├─ engine_core.py (500 LOC) — Agent Loop（复用 code-agent/core/loop.py）
+  ├─ message_history.py (300 LOC) — 消息历史
+  ├─ tool_registry.py (300 LOC) — 声明式工具注册
+  ├─ core_tools.py (800 LOC) — 10 个基础工具
+  │   ├─ read/write file, search code, exec cmd
+  │   ├─ git status/diff/commit
+  │   ├─ web fetch, project analysis
+  │   └─ MCP ping/discover
+  └─ injection_detector.py (200 LOC) — 基础注入检测
 
-Week 2: 同步模式
+Week 2: 同步模式 + 3 层上下文
   ├─ sync_mode.py (400 LOC) — CLI 交互
-  ├─ permission_racer.py (400 LOC)
-  ├─ context_pipeline.py (400 LOC) — 基础 2 层
-  └─ terminal_ui.py (400 LOC) — 基础终端
+  ├─ permission_racer.py (400 LOC) — 3 层竞速
+  ├─ context_pipeline.py (500 LOC) — 3 层（会话+项目+工具）
+  └─ terminal_ui.py (400 LOC) — 基础终端（Rich）
 
-里程碑: 可以日常编码使用（同步模式）
+里程碑: 可以日常编码使用（同步模式），支持 10 个工具
 ```
 
 ### Phase 1：服务层（2 周）
@@ -624,15 +695,19 @@ Week 8: 集成 + 文档
 | 自我进化失控 | 低 | 致命 | Bootstrap 不可修改 + 沙箱 + 回滚 |
 | MCP 协议变化 | 中 | 中 | 抽象网关层，隔离变化 |
 | Python 终端生态 | 中 | 中 | Rich + Prompt Toolkit 已验证 |
+| 上下文压缩不足（Phase 0 3 层 vs Claude 5 层） | 中 | 中 | Phase 2 扩展到 4 层 |
+| 终端兼容性问题（8 个终端调色板） | 低 | 低 | 跟随 Textual 框架兼容性 |
+| OTEL 环境变量泄漏 | 低 | 中 | Phase 1 加入子进程环境隔离 |
 
 ### 7.2 竞争风险
 
 | 风险 | 概率 | 影响 | 缓解 |
 |------|------|------|------|
-| Claude Code 发布 KAIROS | 高 | 高 | 差异化在自我进化，不是异步 |
+| Claude Code 发布 KAIROS | **极高**（代码已写） | 高 | 差异化在自我进化+开源，不是异步 |
 | Codex 开源 | 低 | 中 | 开源不是护城河，治理是 |
 | Cursor 做 CLI | 中 | 中 | 终端体验需要深度积累 |
 | 社区复制 | 中 | 低 | 开源核心 + 企业版 |
+| **Fable 5 暂停→闭源模型信任危机** | 中 | **高** | 模型无关架构，支持多种后端 |
 
 ### 7.3 产品风险
 
@@ -677,6 +752,6 @@ v7.0 的改进:
 
 ---
 
-*版本：v7.0 · 2026-06-26*
+*版本：v7.1 · 2026-06-29*
 *作者：小鸣*
-*基于：ChatGPT/OpenAI Codex 设计哲学 · Google 生产级 Agent 原则 · Claude Code 512K 行泄露源码逆向 · 2026 行业五大转变*
+*基于：ChatGPT/OpenAI Codex 设计哲学 · Google 生产级 Agent 原则 · Claude Code 512K 行泄露源码逆向 · 2026 行业五大转变 · Anthropic 3 个月产品迭代分析（v2.1.69→v2.1.141+）*

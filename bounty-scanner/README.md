@@ -32,6 +32,9 @@ python bounty_scanner.py --language python --output bounties.json
 
 # Search multiple languages
 python bounty_scanner.py --language python,javascript,rust
+
+# Custom labels (comma-separated)
+python bounty_scanner.py --label "bounty,💰,sponsored" --language python
 ```
 
 ## Output Example

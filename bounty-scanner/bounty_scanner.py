@@ -172,14 +172,18 @@ def search_github(
     language: str = "",
     max_results: int = 20,
     min_bounty: int = 0,
+    bounty_labels: Optional[List[str]] = None,
 ) -> List[BountyIssue]:
     """Search GitHub Issues for bounty-labeled issues."""
     results: List[BountyIssue] = []
+    labels = bounty_labels or BOUNTY_LABELS
 
     # Build query
     query_parts = ['is:issue', 'is:open']
-    label_query = " ".join(f'label:"{l}"' for l in BOUNTY_LABELS)
-    query_parts.append(f"({label_query})")
+    # GitHub search: comma-separated labels = OR
+    # e.g. label:bounty,paid,reward matches any of those labels
+    label_query = ",".join(labels)
+    query_parts.append(f"label:{label_query}")
     if language:
         query_parts.append(f"language:{language}")
 
@@ -332,11 +336,18 @@ Examples:
         action="store_true",
         help="Output as JSON to stdout",
     )
+    parser.add_argument(
+        "--label",
+        default="bounty,paid,reward,sponsored",
+        help="Comma-separated label names to search (default: bounty,paid,reward,sponsored)",
+    )
 
     args = parser.parse_args()
 
     print(f"\n  🎯 Bounty Scanner v1.0", file=sys.stderr)
     print(f"  {'=' * 40}", file=sys.stderr)
+
+    custom_labels = [l.strip() for l in args.label.split(",") if l.strip()]
 
     all_results: List[BountyIssue] = []
     languages = [l.strip() for l in args.language.split(",") if l.strip()]
@@ -347,6 +358,7 @@ Examples:
                 language=lang,
                 max_results=args.max_results,
                 min_bounty=args.min_bounty,
+                bounty_labels=custom_labels,
             )
             all_results.extend(results)
         # Re-rank combined results
@@ -358,6 +370,7 @@ Examples:
             language="",
             max_results=args.max_results,
             min_bounty=args.min_bounty,
+            bounty_labels=custom_labels,
         )
 
     if args.output:

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Hermes v2 - nvidia/nemotron-3-ultra-550b-a55b (NVIDIA)
+export HERMES_HOME="$HOME/.hermes2"
+export HERMES_TUI_DIR="$HOME/.hermes2/.venv/lib/python3.11/site-packages/ui-tui"
+exec "$HOME/.hermes2/.venv/bin/hermes" "$@"

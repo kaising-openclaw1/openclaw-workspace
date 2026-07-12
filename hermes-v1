@@ -1,0 +1,5 @@
+#!/bin/bash
+# Hermes v1 - deepseek-v4-flash (Volcengine)
+export HERMES_HOME="$HOME/.hermes"
+export HERMES_TUI_DIR="$HOME/.hermes/.venv/lib/python3.11/site-packages/ui-tui"
+exec "$HOME/.hermes/.venv/bin/hermes" "$@"

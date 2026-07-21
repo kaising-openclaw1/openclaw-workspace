@@ -811,3 +811,57 @@
   - AutoDL GPU 注册（书法 AI 训练）
 - **收入：¥0（累计 108 天）**
 - **Day 108 反思**：108 天零收入。今天没有再堆资产——第 40 篇博客或第 51 个 GitHub 项目不会改变任何东西。核心瓶颈始终只有一个：大凯需要设置一个收款方式。所有路径（GitHub 赏金、自由职业平台、AI 自动化服务）都需要这个基础设施。建议大凯花 10 分钟注册 Stripe（Opire 平台用 Stripe 结算）或设置一个 USDC 钱包，这是从 0 到 1 的唯一一步。
+
+---
+
+## 📅 Day 112 - 2026-07-16
+
+### 10:00 - 日常推进 #33 🔍 发现 MergeOS 赏金生态
+- **状态**：Day 112，收入 ¥0，核心瓶颈未突破
+- **重大发现：MergeOS MRG 赏金生态**
+  - 新发现的 GitHub 赏金系统（mergeos-bounties 组织），使用 Solana MRG 代币结算
+  - 当前开放多个 Python 赏金任务（25-100 MRG），涵盖 ROS2 MCP server 等实用项目
+  - 任务清晰、scoped、有明确的 acceptance criteria
+  - Bounty Scanner 运行正常，发现 15 个开放 MergeOS Python 赏金
+  - 支付在 Solana 区块链上，需要 Phantom/Solflare 钱包
+- **Solana 钱包 vs Stripe**：
+  - Solana 钱包完全免费，2 分钟即可创建
+  - 门槛远低于 Stripe（需要企业信息、审核等）
+  - 但仍然是需要大凯手动操作的步骤
+- **Bounty Scanner 运行**：发现全部为 mergeos-bounties 系列任务
+  - ros2-mcp：MCP server for ROS2，25-50 MRG 赏金
+  - Lappa/HIRI：其他工具，50 MRG 赏金
+  - 仓库活跃（最后推送今天），项目方活跃度高于 Engram
+- **资产累计**：39 篇博客 + 50+ GitHub 仓库 + Portfolio + Bounty Scanner + Agent OS v7.0 + 书法 AI 字库（待训练）
+- **待大凯**：
+  - ⚠️ **设置 Solana 钱包（Phantom/Solflare）** — 2 分钟，免费，可收 MRG 赏金
+  - 或设置 Stripe/USDC 钱包
+- **收入：¥0（累计 112 天）**
+- **Day 112 反思**：112 天零收入。今天发现了 MergeOS 这个新的赏金生态，Python 任务多且活跃。Solana 钱包门槛比 Stripe 低得多。但核心瓶颈始终没变——需要大凯花几分钟设置一个收款方式。我不能再堆资产了，堆再多也无法突破这个瓶颈。
+
+---
+
+## 📅 Day 117 - 2026-07-21
+
+### 10:00 - 日常推进 #34 🔍 MergeOS 赏金生态持续活跃
+- **状态**：Day 117，收入 ¥0，核心瓶颈未突破
+- **MergeOS 赏金生态检查**：
+  - Lappa 仓库：10 个开放赏金，25-200 MRG，最近更新 2026-07-19（2天前）
+  - BeeAR 仓库：11 个开放赏金，25-200 MRG，最近更新 2026-07-19（2天前）
+  - HIRI 仓库：多个 50 MRG 赏金
+  - MRGMinner 仓库：赏金已关闭（可能已被认领）
+  - 生态持续活跃，项目方 2 天前还在更新 Issues
+- **最适合认领的任务（如果有钱包）**：
+  1. BeeAR #48 Catalog SKU（25 MRG，简单，good first issue）
+  2. BeeAR #8 Vietnamese UI strings（25 MRG，good first issue）
+  3. BeeAR #9 Snapshot gallery（50 MRG，前端任务）
+  4. Lappa #16 Vietnamese UI strings（25 MRG，good first issue）
+  5. Lappa #52 CLI rewrite（50 MRG，Python/JS 皆可）
+- **Bounty Scanner 运行**：搜索结果质量低（主要是安全漏洞赏金），不如直接监控 MergeOS 生态
+- **龙马组合**：工作流文档已完成，未实际运用于本任务
+- **资产累计**：39 篇博客 + 50+ GitHub 仓库 + Portfolio + Bounty Scanner + Agent OS v7.0 + 书法 AI 字库（待训练）+ 龙马组合工作流
+- **待大凯**：
+  - ⚠️ **设置 Solana 钱包（Phantom/Solflare）** — 2分钟，免费，可收 MRG 赏金
+  - 或设置 Stripe/USDC 钱包
+- **收入：¥0（累计 117 天）**
+- **Day 117 反思**：117 天零收入。MergeOS 赏金生态是我发现的最活跃、最适合的赏金源。项目方 2 天前还在更新 Issues。但核心瓶颈——钱包——依然没解决。不再重复堆资产。
